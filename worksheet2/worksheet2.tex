@@ -1,0 +1,388 @@
+\documentclass[12pt]{exam}
+
+\usepackage{fullpage, amsmath, amssymb, amsthm}
+
+\renewcommand{\partshook}{\setlength\itemsep{1em}}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\sign}{sign}
+\begin{document}
+
+\section*{MATH 307 --- Worksheet \#2 }
+
+\begin{questions}
+    \setlength\itemsep{1.25em}
+    \setlength\parskip{1em}
+
+    \question
+    Let $\sqrt{\cdot}$ denote the branch of the square root defined by
+    \[
+        \sqrt re^{i\theta} = \sqrt re^{i\theta/2},\quad \theta\in [0,2\pi)
+    \]
+    For which $z$ does the identity $\sqrt{z^2}=z$ hold?
+
+    \begin{solution}
+        Write $z=re^{i\theta}$, $\theta\in[0,2\pi)$. Then
+        \[
+            z^2 = r^2e^{i(2\theta)}
+        \]
+        If $0\leq \theta < \pi$, then $0\leq 2\theta < 2\pi$ and
+        \[
+            \sqrt {z^2} = \sqrt{r^2}e^{i(2\theta)/2} = re^{i\theta}=z.
+        \]
+        If, however, $\pi\leq \theta < 2\pi$, then $2\pi\leq \theta < 4\pi$,
+        in which case
+        \[
+            \sqrt {z^2} = \sqrt{r^2}e^{i(2\theta-2\pi)/2} = re^{i\theta}e^{-i\pi}=-z.
+        \]
+        Thus, $\sqrt{z^2}=\sqrt z$ if and only if $\theta\in [0,\pi)$.
+    
+    \end{solution}
+    \question
+    Find all values.
+    \begin{parts}
+        \item $\log 1$
+        \begin{solution}
+            \[
+                \log 1 = \log |1| + i\arg 1 = 2k\pi i
+            \]
+        \end{solution}
+
+        \item $\log (1+i)$
+        \begin{solution}
+            \[
+                \log (1+i) = \log |1+i| + i\arg(1+i) = \log\sqrt 2 + i\left(\frac\pi 4 + 2k\pi\right)
+            \]
+        \end{solution}
+
+        \item $(1+i)^{1+i}$
+        \begin{solution}
+            \begin{align*}
+                (1+i)^{1+i} &= e^{(1+i)\log(1+i)}\\
+                &= e^{(1+i)\left\{\log\sqrt 2 + i\left(\frac\pi 4 + 2k\pi\right)\right\}}\\
+                &= e^{\log\sqrt2-\left(\frac\pi4+2k\pi\right)}e^{i\log\sqrt2}\\
+                &= e^{\log\sqrt2-\left(\frac\pi4+2k\pi\right)}\left\{\cos\log\sqrt2 + i\sin\log\sqrt2\right\}
+            \end{align*}
+        \end{solution}
+    \end{parts}
+
+    \question Find real and imaginary parts of $z^z$.
+
+    \begin{solution}
+        Write $z=re^{i\theta}$.
+        \begin{align*}
+            z^z &= e^{z\log z}\\
+            &= e^{(r\cos\theta+ir\sin\theta)(\log r + i\theta)}\\
+            &= e^{r\cos\theta\log r - \theta r\sin\theta}e^{i(r\theta\cos\theta + r\log r\sin\theta)}\\
+            &= r^{r\cos\theta}e^{- \theta r\sin\theta}\left\{\cos(r\theta\cos\theta + r\log r\sin\theta) + i\sin(r\theta\cos\theta + r\log r\sin\theta)\right\}
+        \end{align*}
+    \end{solution}
+
+    \question
+    Compute the limit or argue that it don't exist.
+    \begin{parts}
+        \part $\displaystyle{\lim_{x\to\infty}e^{x+iy}}$ (fixed $y$)
+
+        \begin{solution}
+            \[
+            \lim_{x\to\infty}e^{x+iy}= e^{iy}\lim_{x\to\infty} e^x = \infty
+            \]
+        \end{solution}
+        \part $\displaystyle{\lim_{x\to-\infty}e^{x+iy}}$ (fixed $y$)
+        \begin{solution}
+            \[
+            \lim_{x\to-\infty}e^{x+iy}= e^{iy}\lim_{x\to-\infty} e^x = 0
+            \]
+        \end{solution}
+
+        \part $\displaystyle{\lim_{y\to\infty}e^{x+iy}}$ (fixed $x$)
+        \begin{solution}
+            \[
+            \lim_{y\to\infty}e^{x+iy}= e^{x}\lim_{y\to\infty} e^{iy}
+            \]
+            This limit does not exists; both real and imaginary parts of $e^{iy}$ oscillate between $-1$ and $1$.
+        \end{solution}
+
+        \part $\displaystyle{\lim_{y\to-\infty}e^{x+iy}}$ (fixed $x$)
+        \begin{solution}
+            \[
+            \lim_{y\to-\infty}e^{x+iy}= e^{x}\lim_{y\to-\infty} e^{iy}
+            \]
+            This limit does not exists; both real and imaginary parts of $e^{iy}$ oscillate between $-1$ and $1$.
+        \end{solution}
+        \part $\displaystyle{\lim_{|z|\to\infty}e^z}$
+        \begin{solution}
+            This limit doesn't exist as $\lim_{|x|\to\infty}e^x$ doesn't.
+        \end{solution}
+        \part $\displaystyle{\lim_{|z|\to\infty}|e^z|}$
+        \begin{solution}
+            This limit doesn't exist as $\lim_{|x|\to\infty}|e^x|=\lim_{|x|\to\infty}e^x$ doesn't.
+        \end{solution}
+    \end{parts}
+
+    \question 
+    \begin{parts}
+    \part Prove that $|a^b| = |a|^b$ for $a\in \CC$ and $b\in\RR$.
+    \begin{solution}
+        \begin{align*}
+            |a^b| &= |e^{b\log a}|\\
+            &= |e^{b(\log|a| + i\arg a)}|\\
+            &= e^{b\log|a|} &\text{because $b$ is real}\\
+            &= |a|^b.
+        \end{align*}
+    \end{solution}
+
+    \part Prove that, for a fixed branch of $\log$, $a^{b+c}=a^ba^c$.
+
+    \part Prove that, for a fixed branch of $\log$, $(ab)^c=a^cb^c$ valid for all complex $a,b,c$ such that $\log(ab)=\log a + \log b$.
+    \begin{solution}
+        \begin{align*}
+            (ab)^c &= e^{c\log(ab)}\\
+            &= e^{b(\log a + \log b)}&\text{if $\log(ab)=\log a + \log b$}\\
+            &= e^{b\log a + c\log b}\\
+            &= e^{b\log a}e^{c\log b}\\
+            &= a^ba^c
+        \end{align*}
+    \end{solution}
+\end{parts}
+
+    \question
+    Determine the set on which the function is analytic and compute its derivative.
+    \begin{parts}
+        \part $\dfrac{1}{(z^3-1)(z^2+2)}$
+
+        \begin{solution}
+            The function is not differentiable on its domain,
+            \[
+                z\neq 1, e^{i\pi/3}, e^{2\pi/3}, \sqrt2 i, -\sqrt2 i.
+            \]
+            For all other $z$,
+            \[
+                \frac d{dz}\dfrac{1}{(z^3-1)(z^2+2)} = -(z^3-1)^{-2}3z^2(z^2+2)^{-1} - (z^3-1)(z^2+2)^{-2}2z.
+            \]
+        \end{solution}
+
+        \part $\dfrac{1}{z + z^{-1}}$
+
+        \begin{solution}
+            The function is differentiable on its domain:
+            \[
+                z\neq 0, i, -i.
+            \]
+            For all other $z$,
+            \[
+                \frac d{dz}\dfrac{1}{z + z^{-1}} = -(z+z^{-1})^{-2}(1-z^{-2}).
+            \]
+        \end{solution}
+        
+        \part $\dfrac z{z^n-2}$
+
+        \begin{solution}
+        The function is differentiable on its domain:
+        \[
+            z\neq \sqrt2e^{2\pi ik/n},\quad n=0,\ldots,n-1.
+        \]
+        For all other $z$,
+        \[
+            \frac d{dz} \dfrac z{z^n-2} = (z^n-2)^{-1} + z(-2)(z^n-2)^{-2}nz^{n-1}.
+        \]
+        \end{solution}
+    \end{parts}
+
+    \question
+    Let
+    \[
+        f(z)=\begin{cases}
+            z^5/|z|^4&\text{if $z\neq 0$},\\
+            0&\text{if $z=0$}.
+        \end{cases}
+    \]
+    \begin{parts}
+        \part Show that
+        \[
+            \lim_{z\to 0}\frac{f(z)}z
+        \]
+        does not exist.
+
+        \begin{solution}
+            \[
+            \lim_{z\to 0}\frac{f(z)}z = \lim_{z\to 0} \frac{z^4}{|z|^4} = \lim_{z\to 0}\frac{z^4}{(z\bar z)^2}
+            = \lim_{z\to 0}\frac{z^2}{\bar z^2}
+            \]
+            If $z\to 0$ along the real axis, $\bar z = z$ and the limit is $1$.
+            
+            Consider approaching $0$ along the line $z=re^{i\pi/4}$. Then
+            \[
+                \lim_{r\to 0}\frac{z^2}{{\bar z}^2} = \lim_{r\to 0} \frac{r^2e^{i\pi/2}}{r^2e^{-i\pi/2}}
+                = \frac{i}{-i}=-1.
+            \]
+            Thus the limit does not exist.
+        \end{solution}
+
+        \part Let $u=\Re f$, $v=\Im f$. Show that
+        \[
+            u(x,0)=x,\quad u(0,y)=0,\quad v(x, 0)=0,\quad v(0, y)=y.
+        \]
+
+        \begin{solution}
+            We have
+            \[
+                f(x + 0i) = \frac{x^5}{|x|^4} = \frac{x(x^4)}{x^4} = x + 0i
+            \]
+            and
+            \[
+                f(0 + iy) = \frac{{iy}^5}{|iy|^4} = \frac{iy(y^4)}{y^4} = 0 + iy.
+            \]
+            Therefore,
+            \[
+                u(x,0) = \Re f(x+0i) = x,\quad v(x,0) = \Im f(x+0i) = 0
+            \]
+            and
+            \[
+                u(0,y) = \Re f(0+iy) = 0,\quad v(0,y) = \Im f(0+iy) =y.
+            \]
+        \end{solution}
+
+    \part Conclude that the partial derivatives of $u$ and $v$ with respect to $x$ and $y$ exist, that
+    the Cauchy-Riemann equations are satisfied, but $f'(0)$ does not exist.
+    Why does this not contradict the Cauchy-Riemann theorem? 
+
+    \begin{solution}
+        By definition, $f(0)=0$, i.e., $u(0,0)=v(0,0)=0$.
+        Therefore,
+        \begin{align*}
+            u_x(0,0) &= \lim_{h\to 0}\frac{u(0+h,0) - u(0,0)}{h} = 1\\
+            u_y(0,0) &= \lim_{h\to 0}\frac{u(0,0+h) - u(0,0)}{h} = 0\\
+            v_x(0,0) &= \lim_{h\to 0}\frac{v(0+h,0) - v(0,0)}{h} = 0\\
+            v_y(0,0) &= \lim_{h\to 0}\frac{v(0, 0+h)) - v(0,0)}{h} = 1\\
+        \end{align*}
+        Thus, the Cauchy-Riemann equations are satisfied.
+
+        This doesn't contradict the Cauchy-Riemann theorem as aren't \emph{continuous} at $z=0$, a condition required by the theorem.
+    \end{solution}
+    \end{parts}
+
+    \question
+    Find the real and imaginary parts of the function and verify that they satisfy the Cauchy-Riemann equations.
+    \begin{parts}
+        \part $f(z)=z^3$
+
+        \begin{solution}
+            \[
+                z^3 = (x+iy)^3 = x^3 + 3x^2iy + 3x(iy)^2 + (iy)^3 = (x^3 - 3xy^2) + i(3x^2y - y^3)
+            \]
+            \begin{align*}
+                u_x &= 3x^2 -3y^2\\
+                u_y &= -6xy\\
+                v_x &= 6xy\\
+                v_y &= 3x^2y - 3y^2.
+            \end{align*}
+            Thus, the Cauchy-Riemann equations are satisfied.
+        \end{solution}
+
+        \part $ze^{-z}$
+        \begin{solution}
+            \[
+                ze^{-z} = (x+iy)e^{-x}(\cos y -i\sin y) = e^{-x}(x\cos y+y\sin y) + ie^{-x}(y\cos y - x\sin y)
+            \]
+            \begin{align*}
+                u_x &= -e^{-x}(x\cos y + y\sin y) + e^{-x}\cos y\\
+                &= e^{-x}(\cos y - x\cos y - y\sin y)\\
+                u_y &= e^{-x}(-x\sin y + \sin y + y\cos y)\\
+                v_x &= -e^{-x}(y\cos y - x\sin y) + e^{-x}\sin y\\
+                &= e^{-x}(-y\cos y + x\sin y - \sin y)\\
+                v_y &= e^{-x}(\cos y - y\sin y - x\cos y).
+            \end{align*}
+            Thus, the Cauchy-Riemann equations hold.
+        \end{solution}
+
+        \part $\cos 2z$
+        
+        \begin{solution}
+            We have:
+            \[
+                \cos(2z) = \cos(2x)\cosh(2y) - i\sin(2x)\sinh(2y)
+            \]
+            \begin{align*}
+                u_x &= -2\sin(2x)\cosh(2y)\\
+                u_y &= 2\cos(2x)\sinh(2y)\\
+                v_x &= -2\cos(2x)\sinh(2y)\\
+                v_y &= -2\sin(2x)\cosh(2y)
+            \end{align*}
+            Thus, the Cauchy-Riemann equations hold.
+        \end{solution}
+    \end{parts}
+
+    % \question
+    % Let
+    % \[
+    %     u(x,y) = e^{-x}(x\sin y - y\cos y).
+    % \]
+    % Find a function $v(x,y)$ such that $f=u+iv$ is analytic.
+
+    % \begin{solution}
+    %     We compute:
+    %     \begin{align*}
+    %         u_x(x,y) &= e^{-x}\sin y - e^{-x}x\sin y + ye^{-x}\cos y\\
+    %         u_y(x,y) &= xe^{-x}\cos y  - e^{-x}\cos y + ye^{-x}\sin y
+    %     \end{align*}
+    %     Since we want
+    %     \begin{align*}
+    %         v_y(x,y) &= u_x(x,y)\\
+    %         &= -e^{-x}x\sin y -e^{-x}y\cos y + e^{-x}\sin y
+    %     \end{align*}
+    %     to hold, we let $v$ be an antiderivative of $u_x$ with respect to $y$:
+    %     \begin{align*}
+    %         v(x,y) &= \int (e^{-x}\sin y - e^{-x}x\sin y + ye^{-x}\cos y)\,dy\\
+    %         &= xe^{-x}\cos y + ye^{-x}\sin y + C(x)
+    %     \end{align*}
+    %     We have the flexibility to choose $C(x)$ so that $u_y = -v_x$ holds.
+    %     \[
+    %         v_x(x,y) = e^{-x}\cos y -xe^{-x}\cos y - ye^x\sin y + C'(x)
+    %     \]
+    %     The identity $u_y=-v_x$ holds with $C=0$, so we take
+    %     \[
+    %         v(x,y) = e^{-x}(x\cos y + y\sin y).
+    %     \]
+    % \end{solution}
+
+    % \question
+    % Find an analytic function $f(z)$ such that $\Re f'(z)=3x^2 - 4y - 3y^2$ and $f(1+i)=0$.
+
+    % \begin{solution}
+    %     Write $f=ui+v$.
+    %     Then $f'= u_x + iv_x$ and
+    %     \[
+    %         u_x = \Re f'(z) = 3x^2 - 4y - 3y^2.
+    %     \]
+    %     Thus,
+    %     \[
+    %         u = \int u_x\,dx = x^3 -4xy -3xy^2 + C(y).
+    %     \]
+    %     Since we want $f$ to be analytic, we need the Cauchy-Riemann equations to hold:
+    %     \[
+    %         v_x = -u_y = 4x + 6xy - C'(y).
+    %     \]
+    %     Thus,
+    %     \[
+    %         v = \int v_x\,dx = 2x^2 + 3x^2y - xC'(y) + D(y).
+    %     \]
+    %     We ensure that $u_x=v_y$ holds:
+    %     \[
+    %         v_y = 3x^2 - xC''(y) + D'(y)
+    %     \]
+    %     Thus, we need $D'(y)=-4y-3y^2$ and $C''(y)=0$.
+        
+
+        
+    % \end{solution}
+
+    % \question
+    % Prove that $f(z)=|z|^4$ is differentiable but not analytic at $z=0$.
+\end{questions}
+\end{document}

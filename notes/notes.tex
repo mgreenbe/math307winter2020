@@ -1,0 +1,134 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath, amsthm, fullpage}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\begin{document}
+\setlength\parindent{0em}
+\setlength\parskip{2em}
+\renewcommand{\baselinestretch}{1.5}
+
+\section{Algebra}
+
+$*$ A \emph{complex number}, $z$, is an expression of the form
+\[
+    z=a+bi,\quad \text{where}\quad a,b\in\RR.
+\]
+Set
+\[
+\Re(z)=a \quad\text{(real part)},\quad
+\Im(z)=b  \quad\text{(imaginary part)}.
+\]
+Write $\CC$ for the set of all complex numbers:
+\[
+    \CC = \{a+bi : a,b\in \RR\}.
+\]
+We view $\RR$ as a subset of $\CC$ by identifying $a+0i\in\CC$ and $a\in\RR$.
+A complex number of the form $0+bi$ is called \emph{purely imaginary}.
+
+
+Two complex numbers are equal when their real are equal and their imaginary parts are equal:
+\[
+    w = z \Longleftrightarrow \Re(w)=\Re(z)\quad\text{and}\quad \Im(w)=\Im(z)
+\]
+
+
+
+
+$*$ Add and subtract complex numbers ``as usual'':
+\[
+    (a+ bi) \pm (c + di) = (a+c)\pm (b+d)i
+\]
+Equivalently,
+\[
+    \Re(z\pm w) = \Re(z) \pm \Re(w),\quad \Im(z\pm w)=\Im(z) \pm \Im(w).
+\]
+
+$*$ Multiply complex numbers ``as usual'', subject to the extra rule $i^2=-1$:
+\[
+    (a+ bi) (c + di) = (ac - bd) + (ad + bc)i
+\]
+Equivalently,
+\[
+    \Re(zw) = \Re(z)\Re(w) - \Im(z)\Im(w),\quad
+    \Im(zw) = \Re(z)\Im(w) + \Im(z)\Re(w).
+\]
+
+$*$ Here's a formula for the $z/w$, $w\neq 0$. Do not memorize it! (See below.)
+\[
+        \frac{a+ bi}{c + di} = \frac{(ac + bd)}{a^2+b^2} + \frac{-ad + bc}{a^2+b^2}i
+\]
+We get reciprocals as a special case
+
+$*$ Define the \emph{complex conjugate}, $\bar z$, of $z$ by
+\[
+    \bar z = a - bi.
+\]
+Equivalently,
+\[
+    \Re(\bar z) = \Re(z),\quad \Im(\bar z) = -\Im(z).
+\]
+Observe that
+\[
+    z\in\RR \Longleftrightarrow z=\bar z,\quad z+\bar z=2\Re(z)\in\RR,\quad z-\bar z=2i\Im(z)\in\RR i
+\]
+We have:
+\[
+    \overline{z \pm w} = \bar z\pm \bar w,\quad
+    \overline{zw} = \bar z\bar w,\quad
+    \overline{z/w} = \bar z/\bar w,\quad
+    \overline{1/z} = 1/\bar z,\quad
+    z\bar z = a^2+b^2
+\]
+Complex conjugates appear in the quadratic formula for negative discriminants.
+If $a,b,c\in\RR$ and $D := b^2-4ac <0$, then the roots of $az^2 + bz + c=0$ are
+\[
+    z=\frac{-b + \sqrt{D}i}{2a}\quad\text{and}\quad \bar z =\frac{-b-\sqrt Di}{2a}.
+\]
+
+\textbf{Theorem:} Every quadratic polynomial with real coefficients has two roots in $\CC$, counted with multiplicity.
+
+$*$ Extend the absolute value function from $\RR$ to $\CC$ by setting
+\[
+    |z| = \sqrt{a^2+b^2}.
+\]
+$|z|$ is also called the \emph{modulus} of $z$.
+Notice that
+\[
+z\bar z = |z|^2.
+\]
+We have $|z|\geq 0$, with equality if and only if $z=0$. Also,
+\[
+    |z+w|\leq |z| + |w|\quad \text{triangle inequality},\quad |zw|=|z||w|.
+\]
+The property $|zw|=|z||w|$ is equivalent to the identity
+\[
+    (a^2+b^2)(c^2+d^2)=(ac-bd)^2 + (ad+bc)^2.
+\]
+Thus, a product of sums of squares is a sum of squares.
+
+Observe that if $w\neq 0$, then
+\[
+    \frac wz = \frac{w\bar z}{z\bar z} = \frac{w\bar z}{|z|^2} = \frac{w\bar z}{a^2+b^2}.
+\]
+To divide $z$ by $w$, just multiply numerator and denominator by $\bar w$ and then follow your nose.
+Reciprocals are easy:
+\[
+    \frac1z = \frac{\bar z}{|z|^2} = \frac{\bar z}{a^2+b^2}.
+\]
+It's useful to note that
+\[
+    |z|=1\Longleftrightarrow \frac1z=\bar z.
+\]
+
+$3^2+4^2=5^2$,  $5^2+12^2=13^2$, $33^2 + 56^2 = 65^2$
+
+
+\section{Geometry}
+
+\end{document}

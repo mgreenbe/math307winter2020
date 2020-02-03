@@ -1,0 +1,412 @@
+\documentclass[12pt]{exam}
+
+\usepackage{fullpage, amsmath, amssymb, amsthm}
+
+\renewcommand{\partshook}{\setlength\itemsep{1em}}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\sign}{sign}
+\begin{document}
+
+\section*{MATH 307 --- Worksheet \#1 }
+
+\begin{questions}
+    \setlength\itemsep{1.25em}
+    \setlength\parskip{1em}
+
+    \question Express the following in the form $x+iy$:
+    \begin{parts}
+        \part $\dfrac{2i-1}{5+6i}$
+        \begin{solution}
+            $\dfrac{2i-1}{5+6i} =\dfrac{(2i-1)(5-6i)}{5^2+6^2}=\dfrac1{61}(7+16i)$
+        \end{solution}
+
+        \part $(3-2i)^3$
+        \begin{solution}
+            $(3-2i)^3 = 3^3 - 3^2(2i) + 3(2i)^2 - (2i)^3 = -9-46i$
+        \end{solution}
+    \end{parts}
+
+
+
+    \question Let $z=x+iy$. Express the following in the form $u(x,y) + iv(x,y)$.
+    \begin{parts}
+        \part $1-z^2$
+    \begin{solution}
+        \[
+1 - z^2 = 1-(x+iy)^2 = 1 - (x^2 - y^2 + 2ixy) = (1-x^2+y^2) - 2ixy
+        \]
+    \end{solution}
+
+    \part $\dfrac1{z^2}$
+    \begin{solution}
+        \[
+            \frac1{z^2} = \frac{\overline{z^2}}{|z^2|^2} = 
+            \frac{{\bar z}^2}{|z|^4} = \frac{(x-iy)^2}{(x^2+y^2)^2}=
+            \frac{{\bar z}^2}{|z|^4} = \frac{x^2 - y^2}{(x^2+y^2)^2}
+            + i\frac{-2xy}{(x^2+y^2)^2}
+        \]
+    \end{solution}
+
+    \part $z^3$
+        \begin{solution}
+            \begin{multline*}
+                \frac1{z^3} = \frac{\overline{z^3}}{|z^3|^2}=
+                \frac{{\bar z}^3}{|z|^6} = \frac{(x-iy)^3}{(x^2+y^2)^3}=\\
+                \frac{x^3 + 3x(-iy)^2 + 3x^2(-iy) + (-iy)^3}{(x^2+y^2)^3}=
+                \frac{x^3 - 3xy^2}{(x^2+y^2)^3} + i\frac{-3xy^2  + y^3}{(x^2+y^2)^3}
+                \end{multline*}
+        \end{solution}
+    \end{parts}
+
+
+
+    \question
+    Verify the identities $\Re(iz) = -\Im(z)$ and $\Im(iz)=\Re(z)$.
+    \begin{solution}
+        \[\Re(iz) = \Re(i(x+iy)) = \Re(-y + ix) = -y = -\Im z\]
+        \[\Im(iz) = \Im(i(x+iy)) = \Im(-y + ix) = x = \Re z\]
+    \end{solution}
+    
+    
+
+    \question
+    For which $z$ does the identity $\Re(z^2)=\Re(z)^2$ hold?
+    \begin{solution}
+        With $z=x+iy$, $\Re(z^2)=x^2-y^2$ and $\Re(z)^2=x^2$.
+        Thus, $\Re(z^2)=\Re(z)^2$ holds if and only if $y=0$, i.e., if and only if $z\in\RR$.
+    \end{solution}
+
+
+
+    \question
+    Express $\dfrac{i^3(1-i)}{2(1+i\sqrt3)}$ in the form $re^{i\theta}$ with $r>0$ and $\theta\in[5\pi, 7\pi)$.
+    \begin{solution}
+        We have
+        \[
+            r = \left|\dfrac{i^3(1-i)}{2(1+i\sqrt3)}\right| = \dfrac{|i^3||1-i|}{|2||1+i\sqrt3|}
+            = \dfrac{1\sqrt{2}}{2\sqrt4} =\frac1{2\sqrt2}
+        \]
+        and
+        \begin{align*}
+            \arg\dfrac{i^3(1-i)}{2(1+i\sqrt3)}&= 3\arg i + \arg(1-i) - \arg 2 - \arg(1+i\sqrt3) + 2k\pi\\
+            &=3\frac\pi 2 - \frac\pi 4 - 0 - \frac\pi 3 + 2k\pi\\
+            &= \frac{11\pi}{12}+ 2k\pi.
+        \end{align*}
+        As
+        \[
+            11\pi/12+2k\pi\in [5\pi, 7\pi) \Longleftrightarrow k=3,
+        \]
+        we set
+        \[
+            \theta := \frac{11\pi}{12} + 6\pi = \frac{83\pi}{12}\in[5\pi, 7\pi).
+        \]
+        Thus,
+        \[
+            \dfrac{i^3(1-i)}{2(1+i\sqrt3)} = \frac1{2\sqrt2}e^{83\pi i/12}.
+        \]
+    \end{solution}
+
+
+
+    \question
+    Let $a,b,c,d\in\RR$ be such that $cd\neq 0$ and let $z\in\CC\setminus\RR$.
+    \begin{parts}
+    \part Express $\Im\dfrac{az+b}{cz+d}$ in terms of $\Im z$.
+    \begin{solution}
+        \[
+            \frac{az+b}{cz+d} = \frac{(az+b)\overline{(cz+d)}}{|cz+d|^2}
+            = \frac{ac|z|^2 + adz + bc\bar z + bd}{|cz+d|^2}
+        \]
+        Note that $ac|z|^2$, $bd$, and $|cz+d|^2$ are real with $|cz+d|^2>0$. Therefore,
+        \begin{multline*}
+            \Im \frac{ac|z|^2 + adz + bc\bar z + bd}{|cz+d|^2} = \Im \frac{adz + bc\bar z}{|cz+d|^2}\\
+            =\frac{ad}{|cz+d|^2}\Im z + \frac{bc}{|cz+d|^2}\Im \bar z
+            =\frac{ad-bc}{|cz+d|^2}\Im z.
+        \end{multline*}
+    \end{solution}
+
+    \part When is $\Im\dfrac{az+b}{cz+d}$ equal to $0$?
+    \begin{solution}
+        As $z\in\CC\setminus\RR$, $\Im z\neq 0$. Therefore, $\Im\dfrac{az+b}{cz+d}=0$ if and only if $ad-bc=0$.
+    \end{solution}
+    \end{parts}
+
+
+
+    \question
+    Describe and sketch the set solution set.
+    \begin{parts}
+        \part $|z-i|=2$
+        \begin{solution}
+            The set of points at distance 2 from $i$, i.e., the circle centered at $i$ with radius $2$.
+        \end{solution}
+        \part $|z + i| = |z - 1|$
+        \begin{solution}
+            The set of points equidistant from $-i$ and $1$. These lie on the line $y=-x$.
+        \end{solution}
+        \part $|z+2i| + |z - 2i| = 6$
+        \begin{solution}
+            The set of points the sum of whose distances from $-2i$ and $2i$ is equal to $6$ is an ellipse with foci at $-2i$ and $2i$.
+            Let's find its radii.
+            By symmetry, the axes of the ellipse lie along the real and imaginary axes.
+            Suppose $\pm ai$, $a>0$, are the points of the ellipse along the imaginary axis. Then
+            \[
+                6 = |-2i - ai| + |2i - ai| = (a+2) + (a-2) = 2a \Longrightarrow a=3
+            \]
+            Suppose $\pm bi$, $b>0$, are the points of the ellipse along the real axis. By the Pythagorean theorem,
+            \[
+                \left(\frac62\right)^2 = 2^2 + b^2 \Longrightarrow b=\sqrt5
+            \]
+            Thus, the Cartesian equation of the ellipse is
+            \[
+                \left(\frac {x}{\sqrt 5}\right)^2 + \left(\frac {y}{3}\right)^2 = 1.
+            \]
+        \end{solution}
+        \part $|z+3| - |z-3| = 4$
+        \begin{solution}
+            The set of points the difference of whose distances from $(-3,0)$ and $(3,0)$ is equal to $4$ is an ellipse with foci at $-3i$ and $3i$.
+    Let $(\pm a, 0)$, $a>0$, be the intersection points of this hyperbola with the $x$-axis.
+    Since $(a,0)$ is on the curve,
+    \[
+    4 = |a+3| - |a-3| = a+3 - (3-a) = 2a \Longrightarrow a=2
+    \]
+    Let $b=\sqrt{3^2 - a^2}=\sqrt5$. Then the hyperbola has cartesian equation
+    \[
+                \left(\frac {x}{2}\right)^2 - \left(\frac {y}{\sqrt 5}\right)^2 = 1.
+            \]
+        \end{solution}
+        
+        \part $\Im z^2=4$
+        \begin{solution}
+            As $\Im z^2 = 2xy$,
+            \[
+                \Im z^2=0\Longleftrightarrow 2xy=0\Longleftrightarrow x=0\;\text{or}\;y=0.
+            \]
+            Thus, the solution set of $\Im z^2=0$ is the union of the real and imaginary axes.
+        \end{solution}
+    \end{parts}
+
+
+
+    \question Solve the equation.
+    \begin{parts}
+        \part $z^2 + 2z + (1-i) = 0$
+        \begin{solution}
+            By the quadratic formula and a bit of algebra,
+            \[
+                z = \frac{-2\pm\sqrt{2^2-4(1)(1-i)}}{2} = -1\pm\sqrt i.
+            \]
+            The square roots of $i$ are $\pm\dfrac{1+i}{\sqrt2}$. Therefore,
+            \[
+                z = -1 \pm \dfrac{1+i}{\sqrt2}.
+            \]
+        \end{solution}
+        \part $z^2 + (2i-3)z + 5 - i = 0$
+        \begin{solution}
+            By the quadratic formula a bit of algebra,
+            \[
+                z = \frac{(3-2i)\pm \sqrt{-15-8i}}2.
+            \]
+            To find the square roots of $-15-8i$, we convert to polar coordinates:
+            \[
+                r:= |-15-8i| = 17,\quad\quad \tan\theta = \frac8{15}
+            \]
+            (We \emph{cannot} write $\theta = \arctan (8/15)$. Why not?)
+            Since $\pi/2<\theta/2<\pi$,
+            \[
+                \cos\frac\theta2 = -\sqrt{\frac{\cos\theta + 1}2}
+                =-\sqrt{\frac{\frac{-15}{17} + 1}2} = -\frac1{\sqrt{17}}.
+            \]
+            (It's easy to miss this minus sign!)
+            \[
+                \sin\frac\theta2 = \sqrt{1-\cos^2\frac\theta2} = \sqrt{1-\frac1{17}} = \frac4{\sqrt{17}}
+            \]
+            Therefore, the square roots of $-15-8i$ are
+            \[
+                \pm \sqrt{r}\left(\cos\frac\theta2 + i\sin\frac\theta2\right)
+                = \pm\sqrt{17}\left(-\frac1{\sqrt{17}} + \frac {4i}{\sqrt{17}}\right)
+                = \pm(-1+ 4i)
+            \]
+            Therefore,
+            \[
+                z = \frac{(3-2i)\pm (-1+4i)}2 = 1+i,\; 2-3i.
+            \]
+        \end{solution}
+    \end{parts}
+
+
+
+    \question\label{Q:sqrt}
+    Given $x,y\in\RR$, show that 
+    \begin{equation*}
+        a=\sqrt{\frac{x+\sqrt{x^2+y^2}}2}\quad
+        b=\sign(y)\sqrt{\frac{-x+\sqrt{x^2+y^2}}2}.
+    \end{equation*}
+    is the unique solution to $(a+ib)^2=x+iy$ with $a\geq 0$.
+    \begin{solution}
+        Suppose $(a+bi)^2 = x+iy$. Equating real and imaginary parts,
+        \[
+            (a+bi)^2 = x+iy\Longleftrightarrow (a^2-b^2) + 2iab = x + iy.
+            \Longleftrightarrow a^2-b^2=x\;\text{and}\;2ab=y
+        \]
+        We consider the case $y\neq 0$, the case $y=0$ being simpler. If $y\neq 0$, then $a\neq 0$ and $b=y/2a$. Substituting this into $a^2-b^2=x$, we get
+        \[
+            a^2 - \frac{y^2}{4a^2} = x\Longleftrightarrow 4(a^2)^2 - 4x(a^2) - y^2=0
+        \]
+        \[
+            a^2 = \frac{4x\pm \sqrt{16x^2 + 16y^2}}{8} = \frac{x\pm \sqrt{x^2 + y^2}}{2}
+        \]
+        Noting that $x-\sqrt{x^2+y^2}<0$,
+        \[
+            a^2=\frac{x-\sqrt{x^2+y^2}}2
+        \]
+        has no solution $a\in\RR$. Thus,
+        \[
+            a = \sqrt{\frac{x+\sqrt{x^2+y^2}}2}.
+        \]
+        We solve for $b$:
+        \begin{multline*}
+            \frac1{\sqrt2a} = \sqrt{\frac1{x+\sqrt{x^2+y^2}}} = \sqrt{\frac{x - \sqrt{x^2+y^2}}{x^2 - (x^2+y^2)}}\\ = \sqrt{\frac{-x+\sqrt{x^2+y^2}}{y^2}}
+            =\sign(y)\frac{\sqrt{-x+\sqrt{x^2+y^2}}}{y}
+        \end{multline*}
+        Thus,
+        \[
+    b = \frac{y}{2a} = \sign(y)\sqrt{\frac{-x+\sqrt{x^2+y^2}}{2}}.
+        \]
+    \end{solution}
+
+
+
+    \question Prove the identities:
+    \[
+        \cos z = \cosh(iz),\quad \cos(iz) = \cosh z,\quad
+        \sin z = -i\sinh(iz),\quad \sin(iz) = i\sinh z
+    \]
+    \begin{solution}
+        The identity $\cos z=\cosh(iz)$ follows directly from the definitions and
+        \[
+            \sin z = \frac{e^{iz} - e^{-iz}}{2i} = \frac1i\frac{e^{iz} - e^{-iz}}{2} = -i\sinh(iz)
+        \]
+        Replacing $z$ with $iz$ in these identities, we get
+        \[
+            \cos(iz) = \cosh(i(iz)) = \cosh(-z) = \cosh z,
+        \]
+        \[
+            \sin(iz) = -i\sinh(i(iz)) = -i\sinh(-z) = i\sinh z.
+        \]
+    \end{solution}
+
+
+
+    \question
+    Prove the identities:
+    \begin{align*}
+        \cos(x+iy) &= \cos x\cosh y - i\sin x\sinh y,\\
+        \sin(x+iy) &= \sin x\cosh y + i\cos x\sinh y
+    \end{align*}
+
+    \begin{solution}
+        Using the identities proved above,
+        \begin{align*}
+            \cos(x+iy) &= \cos x\cos(iy) - \sin x\sin(iy)\\
+            &=\cos x\cosh y - \sin x(i\sinh y)\\
+            &=\cos x\cosh y - i\sin x\sinh y,
+        \end{align*}
+        \begin{align*}
+            \sin(x+iy) &= \sin x\cos(iy) + \cos x\sin(iy)\\
+            &=\sin x\cosh y + \cos x(i\sinh y)\\
+            &=\sin x\cosh y + i\cos x\sinh y.
+        \end{align*}
+    \end{solution}
+
+
+
+    \question
+    Prove the identity:
+    \[
+        |\cos z|^2 = \cos^2 x + \sinh^2 y
+    \]
+    Deduce that
+    \[
+        \lim_{y\to\infty} |\cos z| = \infty\quad\text{and}\quad
+        \lim_{y\to\infty} |\sin z| = \infty
+    \]
+    \begin{solution}
+        \begin{align*}
+        |\cos z|^2 &= \cos^2 x\cosh^2 y + \sin^2 x\sinh^2 y\\
+        &=  \cos^2 x\cosh^2 y + (1-\cos^2 x)\sinh^2 y\\
+        &= \cos^2x(\cosh^2 y - \sinh^2 y) + \sinh^2 y\\
+        &= \cos^2x + \sinh^2 y
+    \end{align*}
+
+    \begin{align*}
+        |\sin z|^2 &= \sin^2 x\cosh^2 y + \cos^2 x\sinh^2 y\\
+        &=  \sin^2 x\cosh^2 y + (1-\sin^2 x)\sinh^2 y\\
+        &= \sin^2x(\cosh^2 y - \sinh^2 y) + \sinh^2 y\\
+        &= \sin^2x + \sinh^2 y
+    \end{align*}
+
+    Since $\sinh y\to\infty$ as $y\to\infty$ and $|\sinh y|\leq |\cos z|,\;|\sin z|$ by the above ,
+    the statement about the limits follows.
+    \end{solution}
+
+
+
+    \question Solve the equation $|\cot z|=1$.
+    \begin{solution}
+        We have:
+        \begin{align*}
+            &
+            &|\cot z| &= 1\\
+            \Longleftrightarrow&
+            &|\cos z|^2 &= |\sin z|^2\\
+            \Longleftrightarrow&
+            &\cos^2 x+\sinh^2 y &= \sin^2 x+ \sinh^2 y\quad\text{(see above)}\\
+            \Longleftrightarrow&
+            &\cos^2 x &= \sin^2 x\\
+            \Longleftrightarrow&
+            &\cos x &= \pm \sin x\\
+            \Longleftrightarrow&
+            & x &= \pi \pm \frac\pi4\\
+        \end{align*}
+        Thus,
+        \[
+            |\cot z| = 1\Longleftrightarrow\Re z = k\pi \pm \frac\pi4.
+        \]
+    \end{solution}
+
+
+
+    \question
+    Solve the equations:
+    \begin{parts}
+        \item $e^{\bar{z}}=\overline{e^z}$
+        \begin{solution}
+            We have:
+            \begin{multline*}
+                e^{\bar z} = e^{x-iy} = e^x(\cos(-y)) + i\sin(-y))\\ = e^x(\cos y - i\sin y) = 
+                \overline{e^x(\cos y + i\sin y)} = \overline{e^z}.
+            \end{multline*}
+            Thus, this identity holds for all $z$.
+        \end{solution}
+
+        \item $\cos(i\bar z) = \overline{\cos(iz)}$
+        \begin{solution}
+            We showed above that $e^{\bar z} = \overline{e^z}$. Therefore,
+            \[
+                \cos(i\bar z) = \cosh\bar z = \frac{e^{\bar z} + e^{-\bar z}}2
+                = \overline{\frac{e^{z} + e^{- z}}2}
+                = \overline{\cosh z}
+                = \overline{\cos(iz)}
+            \]
+            for all $z$.
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}
