@@ -1,4 +1,4 @@
-\documentclass[12pt]{exam}
+\documentclass[12pt, answers]{exam}
 
 \usepackage{fullpage, amsmath, amssymb, amsthm}
 
@@ -53,16 +53,24 @@
         \]
     \end{solution}
 
+    \part $\dfrac1{z^3}$
+    \begin{solution}
+        \begin{multline*}
+            \frac1{z^3} = \frac{\overline{z^3}}{|z^3|^2}=
+            \frac{{\bar z}^3}{|z|^6} = \frac{(x-iy)^3}{(x^2+y^2)^3}=\\
+            \frac{x^3 + 3x(-iy)^2 + 3x^2(-iy) + (-iy)^3}{(x^2+y^2)^3}=
+            \frac{x^3 - 3xy^2}{(x^2+y^2)^3} + i\frac{-3x^2y  + y^3}{(x^2+y^2)^3}
+            \end{multline*}
+    \end{solution}
+
     \part $z^3$
-        \begin{solution}
-            \begin{multline*}
-                \frac1{z^3} = \frac{\overline{z^3}}{|z^3|^2}=
-                \frac{{\bar z}^3}{|z|^6} = \frac{(x-iy)^3}{(x^2+y^2)^3}=\\
-                \frac{x^3 + 3x(-iy)^2 + 3x^2(-iy) + (-iy)^3}{(x^2+y^2)^3}=
-                \frac{x^3 - 3xy^2}{(x^2+y^2)^3} + i\frac{-3xy^2  + y^3}{(x^2+y^2)^3}
-                \end{multline*}
-        \end{solution}
-    \end{parts}
+    \begin{solution}
+        \[
+            z^3 = (x+iy)^3 = x^3 - 3xy^2 + i(3x^2y - y^3)
+        \]
+    \end{solution}
+\end{parts}
+
 
 
 
@@ -170,13 +178,21 @@
         \end{solution}
         \part $|z+3| - |z-3| = 4$
         \begin{solution}
-            The set of points the difference of whose distances from $(-3,0)$ and $(3,0)$ is equal to $4$ is an ellipse with foci at $-3i$ and $3i$.
-    Let $(\pm a, 0)$, $a>0$, be the intersection points of this hyperbola with the $x$-axis.
+            The set of points the difference of whose distances from $(-3,0)$ and $(3,0)$ is equal to $\pm4$ is a hyperbola with foci at $-3$ and $3$.
+            By the symmetries of the equation $|z+3| - |z-3| = 4$, the hyperbola is in standard position and orientation. Thus, it has an equation of the form
+            \[\frac{x^2}{a^2}-\frac{y^2}{b^2}=1,\]
+            for some $a,b>0$.
     Since $(a,0)$ is on the curve,
     \[
     4 = |a+3| - |a-3| = a+3 - (3-a) = 2a \Longrightarrow a=2
     \]
-    Let $b=\sqrt{3^2 - a^2}=\sqrt5$. Then the hyperbola has cartesian equation
+    To determine $b$, first find another point on the hyperbola. Let's find the points $z=3\pm iy$ that lie on the hyperbola. By the defining equation,
+    \[
+        |3+iy + 3| - |3+iy - 3|=4.
+    \]
+    The solutions of this equation are $y=\pm \frac52$.
+    Plugging $x=3$, $y=\frac52$ into \[\frac{x^2}{2^2} + \frac{y^2}{b^2}=1,\] and solving for $b$, we get $b=\sqrt5$.
+    Thus, the hyperbola has cartesian equation
     \[
                 \left(\frac {x}{2}\right)^2 - \left(\frac {y}{\sqrt 5}\right)^2 = 1.
             \]
@@ -186,9 +202,9 @@
         \begin{solution}
             As $\Im z^2 = 2xy$,
             \[
-                \Im z^2=0\Longleftrightarrow 2xy=0\Longleftrightarrow x=0\;\text{or}\;y=0.
+                \Im z^2=4\Longleftrightarrow 2xy=4\Longleftrightarrow xy=2.
             \]
-            Thus, the solution set of $\Im z^2=0$ is the union of the real and imaginary axes.
+            The graph of $xy=2$ is a rectangular hyperbola.
         \end{solution}
     \end{parts}
 
@@ -248,7 +264,12 @@
         a=\sqrt{\frac{x+\sqrt{x^2+y^2}}2}\quad
         b=\sign(y)\sqrt{\frac{-x+\sqrt{x^2+y^2}}2}.
     \end{equation*}
-    is the unique solution to $(a+ib)^2=x+iy$ with $a\geq 0$.
+    is the unique solution to $(a+ib)^2=x+iy$ with $a\geq 0$. Here,
+    \[
+        \sign(y)=\begin{cases}
+            1&\text{if $y>0$,}\\0&\text{if $y=0$,}\\-1&\text{if $y<0$.}
+        \end{cases}
+    \]
     \begin{solution}
         Suppose $(a+bi)^2 = x+iy$. Equating real and imaginary parts,
         \[

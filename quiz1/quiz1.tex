@@ -1,4 +1,4 @@
-\documentclass[12pt, addpoints, answers]{exam}
+\documentclass[12pt]{exam}
 
 \usepackage{fullpage, amsmath, amssymb, amsthm, graphicx}
 
@@ -14,11 +14,12 @@
 \begin{document}
 
 \section*{MATH 307 --- Quiz \#1 }
-\settabletotalpoints{20}
 
-\begin{center}
-    \gradetable[h]
-\end{center}
+\emph{Instructions:} You have 50 minutes to solve all three multipart problems.
+All answers should be exact -- no decimal approximations.
+No calculators, notes, or other aids.
+Hand in only your solution booklet. 
+There are 21 points available, plus 1 bonus point, but I'll record the grade out of 20.
 
 \begin{questions}
     \setlength\itemsep{1.25em}
@@ -35,7 +36,15 @@
         \end{solution}
 
         \part[2] Express $\Log\left(\dfrac14 - \dfrac14i\right)$ in the form $x+iy$.
-            Here, $\Log$ denotes the principal branch of the logarithm.
+            Here, $\Log$ denotes the \textbf{principal branch} of the logarithm.
+
+            \begin{solution}
+                \begin{align*}
+                    \Log\left(\dfrac14 - \dfrac14i\right) &= \log\left|\dfrac14 - \dfrac14i\right| + i\Arg\left(\dfrac14 - \dfrac14i\right)\\
+                    &= \log\sqrt{\dfrac1{4^2} + \dfrac1{4^2}} + i\left(-\frac\pi4\right)\\
+                    &= -\frac52\log2 - i\frac{\pi}4
+                \end{align*}
+            \end{solution}
 
         \part[2] Express $z=(\sqrt3-i)^6$ in the form $re^{i\theta}$.
        \begin{solution}
@@ -82,10 +91,12 @@
 
     \question
     Sketch the sets in the complex plane, each on its own set of axes.
-    Label radii, angles, etc. so that your meaning is unambiguous
+    Label points, radii, angles, etc. so that your meaning is unambiguous.
     \begin{parts}
         \part[2]
-        $\displaystyle{A=\left\{z=re^{i\theta} : 1\leq r\leq2\;\text{and}\; -\frac\pi3\leq\theta \leq \frac\pi3\right\}}$
+        $A = \{z : |z|<|z+1|\}$
+        \part[2]
+        $\displaystyle{B=\left\{z=re^{i\theta} : 1\leq r\leq2\;\;\text{and}\; -\frac\pi3\leq\theta \leq \frac\pi3\right\}}$
 
         \begin{solution}
     
@@ -93,14 +104,15 @@
         \end{solution}
 
         \part[2]
-        $\displaystyle{B=\{e^{i\pi/6}z^2 : z\in A\}}$
+        $\displaystyle{C=\{e^{i\pi/6}z^2 : z\in B\}}$
         \begin{solution}
 
             \includegraphics[scale=0.7]{b.pdf}
         \end{solution}
 
-        \part[2]
-        $\displaystyle{C=\{z : z^2\in A\}}$
+        \part[1] \fbox{ $\star\star$ \textsc{Bonus} $\star\star$ }
+        $\displaystyle{D=\{z : z^2\in B\}}$
+        \fbox{$\star\star$\textsc{Bonus}$\star\star$}
         \begin{solution}
 
             \includegraphics[scale=0.7]{c.pdf}
@@ -112,7 +124,7 @@
     \question[5]
     Let $\sqrt\cdot$ be the branch of the square root defined by
     \[
-        \sqrt{re^{i\theta}} = \sqrt re^{i\theta/2}\qquad\text{for}\qquad \theta\in [\pi, 3\pi).
+        \sqrt{re^{i\theta}} = \sqrt r\,e^{i\theta/2}\qquad\text{for}\qquad \theta\in [\pi, 3\pi).
     \]
     For which $z$ does $\sqrt{z^2}=z$ hold?
     

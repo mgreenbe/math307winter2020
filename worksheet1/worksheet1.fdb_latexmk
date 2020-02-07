@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1580836996 "/Users/mgreenbe/teaching/2020-winter/307/worksheet2/worksheet2.tex" "worksheet2.pdf" "worksheet2" 1580837000
-  "/Users/mgreenbe/teaching/2020-winter/307/worksheet2/worksheet2.tex" 1580836999 13205 4967abbfc261c0add842ee11b98d630c ""
+["pdflatex"] 1580931451 "/Users/mgreenbe/teaching/2020-winter/307/worksheet1/worksheet1.tex" "worksheet1.pdf" "worksheet1" 1580931451
+  "/Users/mgreenbe/teaching/2020-winter/307/worksheet1/worksheet1.tex" 1580931450 14545 7f0b17ae88616fb440e7ad91b4eeb4d2 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -31,6 +31,7 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1248133631 36118 fad905eba93cff5bce1e185fe980a177 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/amscls/amsthm.sty" 1513722769 12604 3dec726c041422879dc3268237f09026 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
@@ -51,9 +52,9 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "worksheet2.aux" 1580836996 2788 3bf21f8b6ac909b94df8fe63aad02195 "pdflatex"
-  "worksheet2.tex" 1580836999 13205 4967abbfc261c0add842ee11b98d630c ""
+  "worksheet1.aux" 1580931451 3401 47687864b51b54975e7a9f758420aaf5 "pdflatex"
+  "worksheet1.tex" 1580931450 14545 7f0b17ae88616fb440e7ad91b4eeb4d2 ""
   (generated)
-  "worksheet2.pdf"
-  "worksheet2.aux"
-  "worksheet2.log"
+  "worksheet1.aux"
+  "worksheet1.log"
+  "worksheet1.pdf"

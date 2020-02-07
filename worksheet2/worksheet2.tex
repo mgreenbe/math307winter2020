@@ -22,7 +22,7 @@
     \question
     Let $\sqrt{\cdot}$ denote the branch of the square root defined by
     \[
-        \sqrt re^{i\theta} = \sqrt re^{i\theta/2},\quad \theta\in [0,2\pi)
+        \sqrt {re^{i\theta}} = \sqrt re^{i\theta/2},\quad \theta\in [0,2\pi)
     \]
     For which $z$ does the identity $\sqrt{z^2}=z$ hold?
 
@@ -33,12 +33,12 @@
         \]
         If $0\leq \theta < \pi$, then $0\leq 2\theta < 2\pi$ and
         \[
-            \sqrt {z^2} = \sqrt{r^2}e^{i(2\theta)/2} = re^{i\theta}=z.
+            \sqrt {z^2} = \sqrt{r^2e^{i(2\theta)}} = re^{i(2\theta)/2} = re^{i\theta}=z.
         \]
         If, however, $\pi\leq \theta < 2\pi$, then $2\pi\leq \theta < 4\pi$,
         in which case
         \[
-            \sqrt {z^2} = \sqrt{r^2}e^{i(2\theta-2\pi)/2} = re^{i\theta}e^{-i\pi}=-z.
+            \sqrt {z^2} = \sqrt{r^2e^{i(2\theta)}} = \sqrt{r^2e^{i(2\theta-2\pi)}} =re^{i(2\theta-2\pi)/2} = re^{i\theta}e^{-i\pi}=-z.
         \]
         Thus, $\sqrt{z^2}=\sqrt z$ if and only if $\theta\in [0,\pi)$.
     
@@ -65,21 +65,23 @@
             \begin{align*}
                 (1+i)^{1+i} &= e^{(1+i)\log(1+i)}\\
                 &= e^{(1+i)\left\{\log\sqrt 2 + i\left(\frac\pi 4 + 2k\pi\right)\right\}}\\
-                &= e^{\log\sqrt2-\left(\frac\pi4+2k\pi\right)}e^{i\log\sqrt2}\\
-                &= e^{\log\sqrt2-\left(\frac\pi4+2k\pi\right)}\left\{\cos\log\sqrt2 + i\sin\log\sqrt2\right\}
+                &= e^{\log\sqrt2-\left(\frac\pi4+2k\pi\right)}e^{i(\log\sqrt2 + \frac\pi4 + 2k\pi)}\\
+                &= \sqrt2e^{-\left(\frac\pi4+2k\pi\right)}
+                \left\{\cos\left(\log\sqrt2 + \frac\pi4 + 2k\pi\right) + i\sin\left(\log\sqrt2 + \frac\pi4 + 2k\pi\right)\right\}
             \end{align*}
         \end{solution}
     \end{parts}
 
-    \question Find real and imaginary parts of $z^z$.
+    \question Let $z=re^{i\theta}$. Express all values of $z^z$ in the form $x+iy$.
 
     \begin{solution}
         Write $z=re^{i\theta}$.
         \begin{align*}
             z^z &= e^{z\log z}\\
-            &= e^{(r\cos\theta+ir\sin\theta)(\log r + i\theta)}\\
-            &= e^{r\cos\theta\log r - \theta r\sin\theta}e^{i(r\theta\cos\theta + r\log r\sin\theta)}\\
-            &= r^{r\cos\theta}e^{- \theta r\sin\theta}\left\{\cos(r\theta\cos\theta + r\log r\sin\theta) + i\sin(r\theta\cos\theta + r\log r\sin\theta)\right\}
+            &= e^{(r\cos\theta+ir\sin\theta)(\log r + i(\theta+2k\pi))}\\
+            &= e^{r\cos\theta\log r - (\theta + 2k\pi) r\sin\theta}e^{i(r(\theta+2k\pi)\cos\theta + r\log r\sin\theta)}\\
+            &= r^{r\cos\theta}e^{- (\theta+2k\pi) r\sin\theta}\left\{\cos(r(\theta+2k\pi)\cos\theta + r\log r\sin\theta)\right.\\
+            &\qquad\qquad+ \left.i\sin(r(\theta+2k\pi)\cos\theta + r\log r\sin\theta)\right\}
         \end{align*}
     \end{solution}
 
@@ -159,7 +161,7 @@
         \begin{solution}
             The function is not differentiable on its domain,
             \[
-                z\neq 1, e^{i\pi/3}, e^{2\pi/3}, \sqrt2 i, -\sqrt2 i.
+                z\neq 1, e^{2i\pi/3}, e^{4\pi/3}, \sqrt2 i, -\sqrt2 i.
             \]
             For all other $z$,
             \[
