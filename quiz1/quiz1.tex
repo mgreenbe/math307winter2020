@@ -1,4 +1,4 @@
-\documentclass[12pt]{exam}
+\documentclass[12pt, answers]{exam}
 
 \usepackage{fullpage, amsmath, amssymb, amsthm, graphicx}
 
@@ -42,7 +42,7 @@ There are 21 points available, plus 1 bonus point, but I'll record the grade out
                 \begin{align*}
                     \Log\left(\dfrac14 - \dfrac14i\right) &= \log\left|\dfrac14 - \dfrac14i\right| + i\Arg\left(\dfrac14 - \dfrac14i\right)\\
                     &= \log\sqrt{\dfrac1{4^2} + \dfrac1{4^2}} + i\left(-\frac\pi4\right)\\
-                    &= -\frac52\log2 - i\frac{\pi}4
+                    &= -\frac32\log2 - i\frac{\pi}4
                 \end{align*}
             \end{solution}
 
@@ -95,6 +95,10 @@ There are 21 points available, plus 1 bonus point, but I'll record the grade out
     \begin{parts}
         \part[2]
         $A = \{z : |z|<|z+1|\}$
+
+        \begin{solution}
+            The set of points whose distance from $0$ is less than their distance from $-1$ is the half-plane $\Re z > -\frac12$.
+        \end{solution}
         \part[2]
         $\displaystyle{B=\left\{z=re^{i\theta} : 1\leq r\leq2\;\;\text{and}\; -\frac\pi3\leq\theta \leq \frac\pi3\right\}}$
 
@@ -128,7 +132,7 @@ There are 21 points available, plus 1 bonus point, but I'll record the grade out
     \]
     For which $z$ does $\sqrt{z^2}=z$ hold?
     
-    Hint: Write $z=re^{i\psi}$ with $\psi\in[-\frac\pi2,3\pi)$. When computing $z^2$, consider the cases $\psi\in[-\frac\pi2,\frac\pi2)$ and $\psi\in[\frac\pi2,\frac{3\pi}2)$ separately.
+    Hint: Write $z=re^{i\psi}$ with $\psi\in[-\frac\pi2,\frac{3\pi}2)$. When computing $z^2$, consider the cases $\psi\in[-\frac\pi2,\frac\pi2)$ and $\psi\in[\frac\pi2,\frac{3\pi}2)$ separately.
     In each case, identify a $k$ such that $2\psi + 2\pi k$ belongs to $[\pi, 3\pi)$.
 
     \begin{solution}

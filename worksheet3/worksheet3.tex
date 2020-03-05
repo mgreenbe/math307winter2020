@@ -1,0 +1,413 @@
+\documentclass[12pt, answers]{exam}
+
+\usepackage{fullpage, amsmath, amssymb, amsthm}
+
+\renewcommand{\partshook}{\setlength\itemsep{1em}}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\length}{length}
+\begin{document}
+
+\section*{MATH 307 --- Worksheet \#3 }
+
+\begin{questions}
+    \setlength\itemsep{0.5em}
+    \setlength\parskip{0.5em}
+
+    \question
+    Compute the derivatives:
+    \begin{parts}
+        \part $\dfrac{\partial}{\partial \bar z}|z|^2$
+
+        \begin{solution}
+            \[
+                \dfrac{\partial}{\partial \bar z}|z|^2 = \dfrac{\partial}{\partial \bar z}z\bar z = z
+            \]
+        \end{solution}
+        \part $\dfrac{\partial}{\partial \bar z}y$
+
+        \begin{solution}
+            \[
+                \dfrac{\partial}{\partial \bar z}y = \dfrac{\partial}{\partial \bar z}\frac1{2i}(z - \bar z) = -\frac1{2i} = \frac i2
+            \]
+        \end{solution}
+
+        \part $\dfrac{\partial}{\partial \bar z}\dfrac{1-|z|}{1+|z|}$
+
+        \begin{solution}
+            \begin{align*}
+                \dfrac{\partial}{\partial \bar z}\dfrac{1-|z|}{1+|z|} &=
+                \dfrac{\partial}{\partial \bar z}\dfrac{1-(z\bar z)^{1/2}}{1+(z\bar z)^{1/2}}\\
+                &= \dfrac{\frac12(z\bar z)^{-1/2}z(1+(z\bar z)^{1/2})-(1-(z\bar z)^{1/2})\frac12(z\bar z)^{-1/2}z}{(1+(z\bar z)^{1/2})^2}\\
+                &= \dfrac{\frac12|z|^{-1}z(1+|z|-(1-|z|))}{(1+|z|)^2}\\
+                &= \dfrac{\frac12|z|^{-1}z(2|z|)}{(1+(z\bar z)^{1/2})^2}\\
+                &= \frac z{(1+|z|)^2}
+            \end{align*}
+        \end{solution}
+    \end{parts}
+
+    \question
+    Being uncomfortable with complex square roots, you're skeptical of the calculation
+    \[
+        \frac{\partial}{\partial \bar z}|z| = \frac{\partial}{\partial \bar z}\sqrt{z\bar z}
+        = \frac{\partial}{\partial \bar z}\sqrt{z}\sqrt{\bar z}
+        =\frac{\sqrt z}{2\sqrt{\bar z}}
+        =\frac{\sqrt z}{2\sqrt{\bar z}}\cdot\frac{\sqrt z}{\sqrt{z}}
+        =\frac z{2|z|}.
+    \]
+    Confirm its result by switching to Cartesian coordinates, i.e., evaluate
+    \[
+        \frac12\left(\frac{\partial}{\partial x} + i\frac{\partial}{\partial y}\right)\sqrt{x^2+y^2}.
+    \]
+    \begin{solution}
+        \begin{align*}
+            \frac12\left(\frac{\partial}{\partial x}\sqrt{x^2+y^2} + i\frac{\partial}{\partial y}\sqrt{x^2+y^2}\right)
+         &= \frac12\left(\frac12\frac{2x}{\sqrt{x^2+y^2}} + i\frac12\frac{2y}{\sqrt{x^2+y^2}}\right)\\
+         &= \frac12\frac{x+iy}{\sqrt{x^2+y^2}}\\
+         &=\frac{z}{2|z|}
+        \end{align*}
+    \end{solution}
+    
+
+
+    \question
+    Let $f$ be a complex-valued function on an open subset $U$ of $\CC$ and let $z\in U$.
+    Explain the difference between the statements
+    ``$f$ is differentiable at $z$'' and ``$f$ is analytic at $z$''.
+
+    \begin{solution}
+        The statement ``$f$ is differentiable at $z$'' means that
+        \[
+            \lim_{w\to z}\frac{f(w) - f(z)}{w-z}
+        \]
+        exists, the derivative being the limiting value. 
+
+        The statement ``$f$ is analytic at $z$'' means that there is an $\epsilon>0$ such that
+        $f$ is differentiable at $w$ for all $w$ with $|w-x|<\epsilon$.
+        In other words, it means that that $f$ is differentiable on a \emph{neighborhood} of $z$.
+    \end{solution}
+    
+    \question At which $z$ is $f'(z)$ differentiable? analytic?
+
+    \begin{parts}
+    \part $f(z) = x^3 + iy^3$
+
+    \begin{solution}
+        Write $u=x^3$, $v=y^3$. Then
+        \[
+            u_x = 3x^2,\quad u_y = 0,\quad v_x = 0,\quad v_y = 3y^2.
+        \]
+        The Cauchy-Riemann equations are satisfied only when $3x^2=3y^2$, i.e., when $x=\pm y$.
+        In particular, $f$ is not analytic at $z=x+iy$ when $x\neq \pm y$.
+        On the other hand, since $u$ and $v$ have continuous partials on $\CC$ and satisfy the
+        Cauchy-Riemann equations along $y=\pm x$, if follows that $f$ is differentiable along these lines.
+        It's not analytic along these lines, however, because they have empty interior, i.e., they don't contain any disk.
+    \end{solution}
+
+    \part $f(z) = x^3 + 3xy^2 -3 x + i(y^3 + 3x^2y -3y)$
+
+    \begin{solution}
+        Write $u=x^3$, $v=y^3$. Then
+        \[
+            u_x = 3x^2 + 3y^2 - 3,\quad u_y = 6xy,\quad v_x = 6xy,\quad v_y = 3y^2 + 3x^2 - 3.
+        \]
+        The Cauchy-Riemann equations are satisfied only when $3x^2=3y^2$, i.e., when $x=0$ or $y=\frac12$.
+        In particular, $f$ is not analytic at $z=x+iy$ when $x\neq 0$ and $y\neq 1/2$.
+        On the other hand, since $u$ and $v$ have continuous partials on $\CC$ and satisfy the
+        Cauchy-Riemann equations along $x=0$ and $y=\frac12$, if follows that $f$ is differentiable these lines.
+        It's not analytic along these lines, however, because they have empty interion, i.e., they don't contain any disk.
+    \end{solution}
+
+    \part $f(z)=\dfrac{z^2 + {\bar z}^2}2 + iz\bar z$
+
+    \begin{solution}
+        \[
+            \frac{\partial f}{\partial \bar z} = \bar z + iz = (x-y) + i(x+y) = 0
+        \]
+        if and only if $z=0$. Thus, $f(z)$ is not analytic at $z\neq 0$.
+        However, $f$ is differentiable at $z=0$ by the above equation together with the fact that the partials of
+        $u=\Re f$ and $v=\Im f$ are polynomials in $x$ and $y$ and, hence, continuous.
+    \end{solution}
+\end{parts}
+
+
+    \question ($*$) Find a $f=u + iv$ such that:
+    \begin{enumerate}
+        \item $u$ and $v$ have continuous partials on $\CC$,
+        \item $f$ is nowhere analytic,
+        \item $f$ is differentiable on the unit circle, $|z|=1$.
+    \end{enumerate}
+
+    \question
+    Solve the equation $\dfrac{\partial u}{\partial \bar z} = 2x$.
+
+    \begin{solution}
+        Use the formula $x=\frac12{z + \bar z}$ to express the equation as
+        \[
+            \dfrac{\partial u}{\partial \bar z} = z + \bar z.
+        \]
+        Now integrate with respect to $\bar z$:
+        \[
+            u = z\bar z + \frac12{\bar z}^2.
+        \]
+    \end{solution}
+
+    \question
+    Show that $\dfrac{\partial^2 f}{\partial {\bar z}^2} = 0$
+    if and only if $f(z)=\bar zg(z) + h(z)$, where $g$ and $h$ are analytic.
+
+    \begin{solution}
+        Functions of the form $f(z) = g(z) + ih(z)$ are clearly solutions of the differential equation.
+        Conversely, let $f$ be a solution. We'll show it must have the required form. Since
+        \[
+            \dfrac{\partial}{\partial \bar z}\dfrac{\partial f}{\partial \bar z} = 0,
+        \]
+        $\partial f/\partial \bar z$ does not depend on $\bar z$, i.e.,
+        $$\frac{\partial f}{\partial \bar z} = g(z)$$ for some $g$.
+        Moreover, $g$ is analytic as
+        \[
+            \frac{\partial g}{\partial \bar z} = \dfrac{\partial^2 f}{\partial {\bar z}^2} = 0.
+        \]
+        Integrate this equation with respect to $\bar z$ to get
+        \[
+            f(z) = \bar z g(z) + h(z)
+        \]
+        for some $h$. (The function $h$ is the ``constant'' of integration, which may depend on $z$ as $\bar z$ is the variable of integration.)
+        I claim that $h$ is analytic.
+        To see this, differentiate the equation $f(z)=\bar z g(z) + h(z)$ with respect to $\bar z$
+        and use the product rule:
+        \[
+            \frac{\partial f}{\partial \bar z} = g(z) + \bar z\frac{\partial h}{\partial \bar z}
+        \]
+        But $\partial f/\partial \bar z=g(z)$, so we get
+        \[
+            \bar z\frac{\partial h}{\partial \bar z} = 0
+        \]
+        Cancelling the $\bar z$, we conclude that $h(z)$ is analytic.
+
+        \textbf{Remark:} I've swept something under the rug, here. The above argument shows only that $\partial h/\partial \bar z=0$ for $z\neq 0$. (You can't cancel zeros!)
+        Can you figure out how to deduce the analyticity of $h(z)$ at $z=0$?
+    \end{solution}
+
+    \question
+    Suppose $f(z)$ is analytic on an open set $U$. Show that $\overline{f(\bar z)}$ is analytic on $\bar U$,
+    where
+    \[
+        \bar U = \{\bar z: z\in U\}.
+    \]
+
+    \question
+    Suppose $v$ is a harmonic conjugate of $u$. Show that $-u$ is a harmonic conjugate of $v$.
+
+\question
+Prove the identities $$\overline{\dfrac{\partial f}{\partial z}} = \dfrac{\partial \bar f}{\partial \bar z}\quad\text{and}\quad
+\overline{\dfrac{\partial f}{\partial \bar z}} = \dfrac{\partial \bar f}{\partial z}.$$ Style points if you deduce one from the other rather than arguing twice.
+
+\question Which of the following identities are true? Prove or give a counterexample.
+\begin{solution}
+    They're all false.  See below for counterexamples.
+\end{solution}
+\begin{parts}
+    \part $\displaystyle{\left|\int_\gamma f(z) dz\right| = \int_\gamma |f(z)|dz}$
+
+    \begin{solution}
+        Let $f(z)=z^{-1}$. Then 
+        \[
+            \int_\gamma z^{-1}\,dz = 2\pi i,
+        \]
+        as we've seen many times.
+        On the other hand, $|z^{-1}|=1$ on $\gamma$. Therefore,
+        \[
+            \int_\gamma|z^{-1}|\,dz = \int_0^{2\pi}1\,dz = 0.
+        \]
+    \end{solution}
+
+    \part $\displaystyle{\left|\int_\gamma f(z) dz\right| = \int_\gamma |f(z)||dz|}$
+    
+    \begin{solution}
+        Take $f(z)=1$. Then
+        \[
+            \int_\gamma 1\,dz = 0,
+        \]
+        but 
+        \[
+            \int_\gamma |1||dz| = \length(\gamma) = 2\pi.
+        \]
+
+        \textbf{Remark:} Using Riemann sums and the triangle inequality, you can show that
+        \[
+            \left|\int_\gamma f(z) dz\right| = \int_\gamma |f(z)||dz|
+        \]
+        for all $f$. Is this inequality sharp?
+
+    \end{solution}
+
+    \part $\displaystyle{\Re\int_\gamma f(z) dz = \int_\gamma \Re(f(z))\,dz}$
+    \begin{solution}
+        Take $f(z)=z$. Then
+        \[
+            \Re \int_\gamma z\,dz = \int_\gamma z\,dz = 0.
+        \]
+        Noting that
+        \[
+            \int_\gamma \bar z\,dz = \int_0^{2\pi}\overline{e^{i\theta}}ie^{i\theta}\,d\theta
+            =i\int_0^{2\pi}1\,d\theta = 2\pi i,
+        \]
+        it follows that
+        \[
+            \int_\gamma\Re(z)\,dz = \int_\gamma \frac{z + \bar z}2\,dz
+            =\frac12\int_\gamma z\,dz + \frac12\int_\gamma \bar z\,dz = \frac{0 + 2\pi i}2 = \pi i.
+        \]
+    \end{solution}
+    \part $\displaystyle{\Im\int_\gamma f(z) dz = \int_\gamma \Im(f(z))\, dz}$
+    \begin{solution}
+        Take $f(z)=z$ as above. Then, as above,
+        \[
+            \Im \int_\gamma z\,dz = \int_\gamma z\,dz = 0
+        \]
+        and
+        \[
+            \int_\gamma\Im(z)\,dz = \int_\gamma \frac{z - \bar z}{2i}\,dz
+            =\frac1{2i}\int_\gamma z\,dz - \frac1{2i}\int_\gamma \bar z\,dz = \frac{0 - 2\pi i}{2i} = -\pi.
+        \]
+    \end{solution}
+\end{parts}
+
+\question
+Compute the line integral. All curves are traversed counterclockwise.
+\begin{parts}
+    \part $\displaystyle{\int_{|z|=1} {\bar z}^n\, dz}$
+
+    \begin{solution}
+        \begin{align*}
+            \int_{|z|=1} {\bar z}^n\, dz &=
+            \int_0^{2\pi}(\overline{e^{i\theta}})^nie^{i\theta}\,d\theta\\
+            &=i\int_0^{2\pi}e^{i(1-n)\theta}\,d\theta\\
+            &=\begin{cases}
+                2\pi i&\text{if $n=1$,}\\
+                0&\text{otherwise.}
+            \end{cases}
+        \end{align*}
+    \end{solution}
+
+    \part $\displaystyle{\int_{|z|=1} z^m{\bar z}^n\, dz}$
+
+    \begin{solution}
+        \begin{align*}
+            \int_{|z|=1} z^m{\bar z}^n\, dz &=
+            \int_0^{2\pi}e^{im\theta}(\overline{e^{i\theta}})^nie^{i\theta}\,d\theta\\
+            &=i\int_0^{2\pi}e^{i(m-n+1)\theta}\,d\theta\\
+            &=\begin{cases}
+                2\pi i&\text{if $n=m+1$,}\\
+                0&\text{otherwise.}
+            \end{cases}
+        \end{align*}
+    \end{solution}
+
+    \part $\displaystyle{\int_{\gamma} x\,dz}$, $\gamma$ is the arc of the parabola $y=x^2$ from $(0,0)$ to $(2,2)$.
+
+    \begin{solution}
+        We take our parametrization to be $\gamma(t) = t + t^2i$, $0\leq t\leq 1$. Then
+        \begin{align*}
+            \int_{|z|=1} x\, dz &=
+            \int_0^{2\pi}t(1+2it)\,dt\\
+            &= \int_0^{2\pi}t\,dt + 2i\int_0^{2\pi}t^2\,dt\\
+            &= 2\pi^2 + \frac{16\pi^3i}3
+        \end{align*}
+    \end{solution}
+    
+    \part $\displaystyle{\int_{\gamma} e^z\,dz}$, $\gamma(t)=e^{it}$, $t\in [0,\pi]$.
+
+\begin{solution}
+    By FTC4LI,
+    \[\int_{\gamma} e^z\,dz = e^{\gamma(1)} - e^{\gamma(0)} = e^{-1} - e.
+    \]
+\end{solution}
+\end{parts}
+
+\question
+Explain why
+\[
+    \int_\gamma \frac{dz}{z} = \int_\gamma i\frac{-y\,dx + x\,dy}{x^2+y^2}
+\]
+for all closed curves $\gamma$ not passing through $0$.
+
+\begin{solution}
+\begin{align*}
+    \frac{dz}z &= \frac{\bar z\,dz}{|z|^2}\\
+    &= \frac{(x-iy)(dx + i\,dy)}{x^2+y^2}\\
+    &= \frac{x\,dx + y\,dy}{x^2+y^2} + i\frac{-y\,dx + x\,dy}{x^2+y^2}
+\end{align*}
+Thus,
+\[
+    \int_\gamma \frac{dz}{z} = \int_\gamma i\frac{-y\,dx + x\,dy}{x^2+y^2}
+\]
+for all closed curves $\gamma$ not passing through $0$ if and only if
+\[
+    \int_\gamma\frac{x\,dx + y\,dy}{x^2+y^2}=0\tag{$*$}
+\]
+for all closed curves $\gamma$ not passing through $0$. Identity $(*)$ follows from
+\[
+    \frac{x\,dx + y\,dy}{x^2+y^2} = d\log\sqrt{x^2+y^2},
+\]
+the fact that $\gamma$ is closed, and the FTC4LI.
+\end{solution}
+
+
+    \section*{Quiz 2}
+
+    \question For which $z$ is $f(z) = |z|^2$ differentiable? analytic?
+
+    \begin{solution}
+        In Cartesian coordinates, $f(z) = u(x,y) + iv(x,y)$ with $u(x,y)=x^2+y^2$ and $v(x,y)=0$.
+        We compute partials:
+        \[
+            u_x = 2x,\quad u_y = 2y,\quad v_x=0,\quad v_y=0
+        \]
+        The Cauchy-Riemann equations are satisfied only at $z=0$. In particular, $f(z)$ is neither differentiable nor analytic at $z$ for $z\neq 0$.
+        Since the partials of $u$ and $v$ are continuous at $z=0$ in addition to the Cauchy-Riemann equations being satisfied there, $f(z)$ is differentiable at $z=0$.
+        It is not analytic at $z=0$, however, because any disk around $z=0$ contains points at which $f(z)$ is not differentiable.
+    \end{solution}
+
+    \question Evaluate the line integrals over the curve $\gamma$ given by $\gamma(t) = e^{it}$, $t\in [0,\frac\pi2]$.
+    \begin{parts}
+        \part $\displaystyle{\int_\gamma}\frac{dz}{z - \frac12}$,\;\; $\gamma$ is the line segment from $1$ to $\dfrac i2$.
+
+        \begin{solution}
+            Write $\Log z$ for the principal branch of the logarithm, so that $\Log z$ is analytic on $\CC\setminus(-\infty, 0)$.
+            $\Log(z - \frac12)$ an antiderivative of $(z - \frac12)^{-1}$ on $\CC\setminus(-\infty, \frac12)$, a region containing $\gamma$.
+            Therefore, by FTC4LI,
+        \begin{align*}
+            \int_\gamma\frac{dz}{z} &= \Log\left(\gamma\left(\frac\pi2\right) - \frac12\right) - \Log\left(\gamma(0) - \frac12\right)\\
+            &= \Log\left(\frac i2 - \frac12\right) - \Log\left(1-\frac12\right)\\
+            &= \log\left|\frac i2 - \frac12\right| + i\arg\left(\frac i2 - \frac12\right) - \log\left|\frac12\right| - i\arg\frac12\\
+            &= \log\frac1{\sqrt2} +\frac{3\pi i}4 - \log\frac12\\
+            &= \frac{\log2}2 +\frac{3\pi i}4\\
+        \end{align*}
+        \end{solution}
+
+        \part $\displaystyle{\int_\gamma\frac{dz}{\bar z}}$, \;\; $\gamma(t) = e^{it}$,\;\; $t\in [0, \frac\pi 2]$
+
+        \begin{solution}
+        \begin{align*}
+            \int_\gamma\frac{dz}{\bar z}&= \int_0^{\frac\pi2} \frac1{\;\,\overline{e^{it}}\;\,}\, ie^{it}\,dt\\
+            &= i\int_0^{\frac\pi2}e^{2it}\,dt\\
+            &= \frac{i}{2i}e^{2it}\Big|^{\frac\pi 2}_0\\
+            &= \frac12\left(e^{i\pi} - 1\right)\\
+            &= -1
+        \end{align*}
+        \end{solution}
+
+    \end{parts}
+
+
+    
+\end{questions}
+\end{document}

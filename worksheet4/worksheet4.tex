@@ -1,0 +1,284 @@
+\documentclass[12pt]{exam}
+
+\usepackage{fullpage, amsmath, amssymb, amsthm}
+
+\renewcommand{\partshook}{\setlength\itemsep{1em}}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\length}{length}
+\begin{document}
+
+\section*{MATH 307 --- Worksheet \#4 }
+
+\begin{questions}
+    \setlength\itemsep{0.5em}
+    \setlength\parskip{0.5em}
+
+    
+    \question
+    Suppose $f(z)$ is analytic on an open set $U$. Show that $\overline{f(\bar z)}$ is analytic on $\bar U$,
+    where
+    \[
+        \bar U = \{\bar z: z\in U\}.
+    \]
+
+    \begin{solution}
+        Let $u\in U$. 
+        Let's show that $g(z):=\overline{f(\bar z)}$. Let $v\in \bar U$. Then
+        \begin{align*}
+            \lim_{w\to  v}\frac{g(w) - g(v)}{w - v}
+            &= \lim_{z\to u}\frac{g(\bar z)-g(\bar u)}{\bar z - \bar u}& (u := \bar v,\; z:=\bar w)\\
+            &= \lim_{z\to u}\frac{\overline{f(z)}-\overline{f(u)}}{\bar z - \bar u}\\
+            &= \lim_{z\to u}\overline{\frac{f(z)-f(u)}{z - u}}\\
+            &= \overline{\lim_{z\to u}\frac{f(z)-f(u)}{z - u}}&(\text{continuity of conjugation})\\
+            &= \overline{f'(u)}\\
+            &= \overline{f'(\bar v)}\\
+        \end{align*}
+        Thus, $g$ is differentiable at $v$ and
+        \[
+            g'(v) = \overline{f'(\bar v)}.
+        \]
+    \end{solution}
+
+    \question
+    Suppose $v$ is a harmonic conjugate of $u$. Show that $-u$ is a harmonic conjugate of $v$.
+
+    \begin{solution}
+
+        Let $u$ be harmonic and let $v$ be a harmonic conjugate of $u$. Then $f:= u+iv$ is analytic.
+        But then $if = -v + iu$ is analytic, too. Therefore, $u$ is a harmonic conjugate of $-v$.
+    \end{solution}
+
+\question
+Prove the identities $$\overline{\dfrac{\partial f}{\partial z}} = \dfrac{\partial \bar f}{\partial \bar z}\quad\text{and}\quad
+\overline{\dfrac{\partial f}{\partial \bar z}} = \dfrac{\partial \bar f}{\partial z}.$$
+Style points if you deduce one from the other rather than arguing twice.
+
+\begin{solution}
+    \begin{align*}
+        \dfrac{\partial \bar f}{\partial \bar z} &=
+        \frac12\left(\frac{\partial}{\partial x} + i\frac{\partial}{\partial y}\right)\bar f\\
+        &= \overline{\frac12\left(\frac{\partial}{\partial x} - i\frac{\partial}{\partial y}\right)f}\\
+        &= \overline{\dfrac{\partial f}{\partial z}}
+    \end{align*}
+    This proves the first identity.
+
+    Letting $\bar f$ play the role of $f$ in the first identity gives
+    \[
+        \overline{\dfrac{\partial \bar f}{\partial z}} = \dfrac{\partial f}{\partial \bar z}
+    \]
+    Conjugating this gives
+    \[
+        \dfrac{\partial \bar f}{\partial z} = \overline{\dfrac{\partial f}{\partial \bar z}},
+    \]
+    which is the second identity.
+\end{solution}
+
+\question Which of the following identities are true? Prove or give a counterexample.
+\begin{solution}
+    They're all false.  See below for counterexamples.
+\end{solution}
+\begin{parts}
+    \part $\displaystyle{\left|\int_\gamma f(z) dz\right| = \int_\gamma |f(z)|dz}$
+
+    \begin{solution}
+        Let $f(z)=z^{-1}$. Then 
+        \[
+            \int_\gamma z^{-1}\,dz = 2\pi i,
+        \]
+        as we've seen many times.
+        On the other hand, $|z^{-1}|=1$ on $\gamma$. Therefore,
+        \[
+            \int_\gamma|z^{-1}|\,dz = \int_0^{2\pi}1\,dz = 0.
+        \]
+    \end{solution}
+
+    \part $\displaystyle{\left|\int_\gamma f(z) dz\right| = \int_\gamma |f(z)||dz|}$
+    
+    \begin{solution}
+        Take $f(z)=1$. Then
+        \[
+            \int_\gamma 1\,dz = 0,
+        \]
+        but 
+        \[
+            \int_\gamma |1||dz| = \length(\gamma) = 2\pi.
+        \]
+
+        \textbf{Remark:} Using Riemann sums and the triangle inequality, you can show that
+        \[
+            \left|\int_\gamma f(z) dz\right| = \int_\gamma |f(z)||dz|
+        \]
+        for all $f$. Is this inequality sharp?
+
+    \end{solution}
+
+    \part $\displaystyle{\Re\int_\gamma f(z) dz = \int_\gamma \Re(f(z))\,dz}$
+    \begin{solution}
+        Take $f(z)=z$. Then
+        \[
+            \Re \int_\gamma z\,dz = \int_\gamma z\,dz = 0.
+        \]
+        Noting that
+        \[
+            \int_\gamma \bar z\,dz = \int_0^{2\pi}\overline{e^{i\theta}}ie^{i\theta}\,d\theta
+            =i\int_0^{2\pi}1\,d\theta = 2\pi i,
+        \]
+        it follows that
+        \[
+            \int_\gamma\Re(z)\,dz = \int_\gamma \frac{z + \bar z}2\,dz
+            =\frac12\int_\gamma z\,dz + \frac12\int_\gamma \bar z\,dz = \frac{0 + 2\pi i}2 = \pi i.
+        \]
+    \end{solution}
+    \part $\displaystyle{\Im\int_\gamma f(z) dz = \int_\gamma \Im(f(z))\, dz}$
+    \begin{solution}
+        Take $f(z)=z$ as above. Then, as above,
+        \[
+            \Im \int_\gamma z\,dz = \int_\gamma z\,dz = 0
+        \]
+        and
+        \[
+            \int_\gamma\Im(z)\,dz = \int_\gamma \frac{z - \bar z}{2i}\,dz
+            =\frac1{2i}\int_\gamma z\,dz - \frac1{2i}\int_\gamma \bar z\,dz = \frac{0 - 2\pi i}{2i} = -\pi.
+        \]
+    \end{solution}
+\end{parts}
+
+\question
+Compute the line integral. All curves are traversed counterclockwise.
+\begin{parts}
+    \part $\displaystyle{\int_{|z|=1} {\bar z}^n\, dz}$
+
+    \begin{solution}
+        \begin{align*}
+            \int_{|z|=1} {\bar z}^n\, dz &=
+            \int_0^{2\pi}(\overline{e^{i\theta}})^nie^{i\theta}\,d\theta\\
+            &=i\int_0^{2\pi}e^{i(1-n)\theta}\,d\theta\\
+            &=\begin{cases}
+                2\pi i&\text{if $n=1$,}\\
+                0&\text{otherwise.}
+            \end{cases}
+        \end{align*}
+    \end{solution}
+
+    \part $\displaystyle{\int_{|z|=1} z^m{\bar z}^n\, dz}$
+
+    \begin{solution}
+        \begin{align*}
+            \int_{|z|=1} z^m{\bar z}^n\, dz &=
+            \int_0^{2\pi}e^{im\theta}(\overline{e^{i\theta}})^nie^{i\theta}\,d\theta\\
+            &=i\int_0^{2\pi}e^{i(m-n+1)\theta}\,d\theta\\
+            &=\begin{cases}
+                2\pi i&\text{if $n=m+1$,}\\
+                0&\text{otherwise.}
+            \end{cases}
+        \end{align*}
+    \end{solution}
+
+    \part $\displaystyle{\int_{\gamma} x\,dz}$, $\gamma$ is the arc of the parabola $y=x^2$ from $(0,0)$ to $(2,2)$.
+
+    \begin{solution}
+        We take our parametrization to be $\gamma(t) = t + t^2i$, $0\leq t\leq 1$. Then
+        \begin{align*}
+            \int_{|z|=1} x\, dz &=
+            \int_0^{2\pi}t(1+2it)\,dt\\
+            &= \int_0^{2\pi}t\,dt + 2i\int_0^{2\pi}t^2\,dt\\
+            &= 2\pi^2 + \frac{16\pi^3i}3
+        \end{align*}
+    \end{solution}
+    
+    \part $\displaystyle{\int_{\gamma} e^z\,dz}$, $\gamma(t)=e^{it}$, $t\in [0,\pi]$.
+
+\begin{solution}
+    By FTC4LI,
+    \[\int_{\gamma} e^z\,dz = e^{\gamma(1)} - e^{\gamma(0)} = e^{-1} - e.
+    \]
+\end{solution}
+\end{parts}
+
+\question
+Explain why
+\[
+    \int_\gamma \frac{dz}{z} = \int_\gamma i\frac{-y\,dx + x\,dy}{x^2+y^2}
+\]
+for all closed curves $\gamma$ not passing through $0$.
+
+\begin{solution}
+\begin{align*}
+    \frac{dz}z &= \frac{\bar z\,dz}{|z|^2}\\
+    &= \frac{(x-iy)(dx + i\,dy)}{x^2+y^2}\\
+    &= \frac{x\,dx + y\,dy}{x^2+y^2} + i\frac{-y\,dx + x\,dy}{x^2+y^2}
+\end{align*}
+Thus,
+\[
+    \int_\gamma \frac{dz}{z} = \int_\gamma i\frac{-y\,dx + x\,dy}{x^2+y^2}
+\]
+for all closed curves $\gamma$ not passing through $0$ if and only if
+\[
+    \int_\gamma\frac{x\,dx + y\,dy}{x^2+y^2}=0\tag{$*$}
+\]
+for all closed curves $\gamma$ not passing through $0$. Identity $(*)$ follows from
+\[
+    \frac{x\,dx + y\,dy}{x^2+y^2} = d\log\sqrt{x^2+y^2},
+\]
+the fact that $\gamma$ is closed, and the FTC4LI.
+\end{solution}
+
+
+    % \section*{Quiz 2}
+
+    % \question For which $z$ is $f(z) = |z|^2$ differentiable? analytic?
+
+    % \begin{solution}
+    %     In Cartesian coordinates, $f(z) = u(x,y) + iv(x,y)$ with $u(x,y)=x^2+y^2$ and $v(x,y)=0$.
+    %     We compute partials:
+    %     \[
+    %         u_x = 2x,\quad u_y = 2y,\quad v_x=0,\quad v_y=0
+    %     \]
+    %     The Cauchy-Riemann equations are satisfied only at $z=0$. In particular, $f(z)$ is neither differentiable nor analytic at $z$ for $z\neq 0$.
+    %     Since the partials of $u$ and $v$ are continuous at $z=0$ in addition to the Cauchy-Riemann equations being satisfied there, $f(z)$ is differentiable at $z=0$.
+    %     It is not analytic at $z=0$, however, because any disk around $z=0$ contains points at which $f(z)$ is not differentiable.
+    % \end{solution}
+
+    % \question Evaluate the line integrals over the curve $\gamma$ given by $\gamma(t) = e^{it}$, $t\in [0,\frac\pi2]$.
+    % \begin{parts}
+    %     \part $\displaystyle{\int_\gamma}\frac{dz}{z - \frac12}$,\;\; $\gamma$ is the line segment from $1$ to $\dfrac i2$.
+
+    %     \begin{solution}
+    %         Write $\Log z$ for the principal branch of the logarithm, so that $\Log z$ is analytic on $\CC\setminus(-\infty, 0)$.
+    %         $\Log(z - \frac12)$ an antiderivative of $(z - \frac12)^{-1}$ on $\CC\setminus(-\infty, \frac12)$, a region containing $\gamma$.
+    %         Therefore, by FTC4LI,
+    %     \begin{align*}
+    %         \int_\gamma\frac{dz}{z} &= \Log\left(\gamma\left(\frac\pi2\right) - \frac12\right) - \Log\left(\gamma(0) - \frac12\right)\\
+    %         &= \Log\left(\frac i2 - \frac12\right) - \Log\left(1-\frac12\right)\\
+    %         &= \log\left|\frac i2 - \frac12\right| + i\arg\left(\frac i2 - \frac12\right) - \log\left|\frac12\right| - i\arg\frac12\\
+    %         &= \log\frac1{\sqrt2} +\frac{3\pi i}4 - \log\frac12\\
+    %         &= \frac{\log2}2 +\frac{3\pi i}4\\
+    %     \end{align*}
+    %     \end{solution}
+
+    %     \part $\displaystyle{\int_\gamma\frac{dz}{\bar z}}$, \;\; $\gamma(t) = e^{it}$,\;\; $t\in [0, \frac\pi 2]$
+
+    %     \begin{solution}
+    %     \begin{align*}
+    %         \int_\gamma\frac{dz}{\bar z}&= \int_0^{\frac\pi2} \frac1{\;\,\overline{e^{it}}\;\,}\, ie^{it}\,dt\\
+    %         &= i\int_0^{\frac\pi2}e^{2it}\,dt\\
+    %         &= \frac{i}{2i}e^{2it}\Big|^{\frac\pi 2}_0\\
+    %         &= \frac12\left(e^{i\pi} - 1\right)\\
+    %         &= -1
+    %     \end{align*}
+    %     \end{solution}
+
+    % \end{parts}
+
+
+    
+\end{questions}
+\end{document}

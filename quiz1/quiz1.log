@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  6 FEB 2020 18:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  12 FEB 2020 10:52
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -267,40 +267,50 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 31.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<a.pdf, id=1, 372.69879pt x 320.1pt>
-File: a.pdf Graphic file (type pdf)
-<use a.pdf>
-Package pdftex.def Info: a.pdf  used on input line 103.
-(pdftex.def)             Requested size: 372.69788pt x 320.09921pt.
-<b.pdf, id=2, 382.09547pt x 375.31416pt>
-File: b.pdf Graphic file (type pdf)
-<use b.pdf>
-Package pdftex.def Info: b.pdf  used on input line 110.
-(pdftex.def)             Requested size: 267.465pt x 262.71812pt.
-<c.pdf, id=3, 370.5886pt x 326.89648pt>
-File: c.pdf Graphic file (type pdf)
-<use c.pdf>
-Package pdftex.def Info: c.pdf  used on input line 118.
-(pdftex.def)             Requested size: 259.41023pt x 228.82597pt.
- [1
+) [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<a.pdf, id=16, 372.69879pt x 320.1pt>
+File: a.pdf Graphic file (type pdf)
+<use a.pdf>
+Package pdftex.def Info: a.pdf  used on input line 107.
+(pdftex.def)             Requested size: 372.69788pt x 320.09921pt.
+
+Underfull \vbox (badness 10000) detected at line 108
+ []
+
+[2]
+<b.pdf, id=22, 382.09547pt x 375.31416pt>
+File: b.pdf Graphic file (type pdf)
+<use b.pdf>
+Package pdftex.def Info: b.pdf  used on input line 114.
+(pdftex.def)             Requested size: 267.465pt x 262.71812pt.
+
+Underfull \vbox (badness 10000) detected at line 115
+ []
+
+[3 <./a.pdf>]
+<c.pdf, id=48, 370.5886pt x 326.89648pt>
+File: c.pdf Graphic file (type pdf)
+<use c.pdf>
+Package pdftex.def Info: c.pdf  used on input line 122.
+(pdftex.def)             Requested size: 259.41023pt x 228.82597pt.
+ [4 <./b.pdf> <./c.pdf>] [5]
 This exam contains 3 questions with 9 parts, 0 subparts, and 0 subsubparts.
 (./quiz1.aux) ) 
 Here is how much of TeX's memory you used:
- 3540 strings out of 492616
- 47999 string characters out of 6129482
- 130581 words of memory out of 5000000
- 7415 multiletter control sequences out of 15000+600000
+ 3544 strings out of 492616
+ 48031 string characters out of 6129482
+ 130597 words of memory out of 5000000
+ 7419 multiletter control sequences out of 15000+600000
  9846 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,27p,319b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on quiz1.pdf (1 page, 102022 bytes).
+ 41i,13n,27p,319b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on quiz1.pdf (5 pages, 647926 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
