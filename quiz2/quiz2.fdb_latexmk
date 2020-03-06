@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1583430845 "/Users/mgreenbe/teaching/2020-winter/307/quiz2/quiz2.tex" "quiz2.pdf" "quiz2" 1583430845
-  "/Users/mgreenbe/teaching/2020-winter/307/quiz2/quiz2.tex" 1583430844 1330 f7334749e84453dac96963807e1c45f6 ""
+["pdflatex"] 1583452184 "/Users/mgreenbe/teaching/2020-winter/307/quiz2/quiz2.tex" "quiz2.pdf" "quiz2" 1583452185
+  "/Users/mgreenbe/teaching/2020-winter/307/quiz2/quiz2.tex" 1583452183 3625 f63c86dce483031179cca1a0f6b2df4f ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -27,7 +27,6 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
-  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1248133631 36118 fad905eba93cff5bce1e185fe980a177 ""
   "/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -59,9 +58,9 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1582397228 4792288 8a0207c9ddc781b3f06732d0e29f137a ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1582397337 8259198 58d504daf274581136fd660af303b4ff ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "quiz2.aux" 1583430845 833 58872fceb36fc26bb62dc011a336adf1 "pdflatex"
-  "quiz2.tex" 1583430844 1330 f7334749e84453dac96963807e1c45f6 ""
+  "quiz2.aux" 1583452185 701 3ca9251a3822db8494bdc7085642d4bb "pdflatex"
+  "quiz2.tex" 1583452183 3625 f63c86dce483031179cca1a0f6b2df4f ""
   (generated)
-  "quiz2.aux"
-  "quiz2.pdf"
   "quiz2.log"
+  "quiz2.pdf"
+  "quiz2.aux"

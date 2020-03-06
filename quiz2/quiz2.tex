@@ -1,4 +1,4 @@
-\documentclass[12pt, answers]{exam}
+\documentclass[12pt]{exam}
 
 \usepackage{fullpage, amsmath, amssymb, amsthm, graphicx}
 
@@ -15,37 +15,102 @@
 
 \section*{MATH 307 --- Quiz \#2 }
 
-\emph{Instructions:} You have 50 minutes to solve all three multipart problems.
+
+\bigskip
+\emph{Instructions:} You have 50 minutes to solve all three problems.
 All answers should be exact -- no decimal approximations.
 No calculators, notes, or other aids.
 Hand in only your solution booklet. 
-There are 21 points available, plus 1 bonus point, but I'll record the grade out of 20.
 
+\bigskip
 \begin{questions}
-    \setlength\itemsep{1.25em}
+    \setlength\itemsep{2em}
     \setlength\parskip{1em}
 
-    \question
-    Compute the derivative
+    \question[3]
+    Find an analytic function $g(z)$ such that
     \[
-    \frac{\partial}{\partial \bar z}{e^x\cos(y)}.
+    \frac{\partial}{\partial \bar z}{e^x\cos(y)} = g(\bar z).
     \]
+    \begin{solution}
+        Use the definition of $\partial/\partial\bar z$:
+        \begin{align*}
+            \frac{\partial}{\partial \bar z}{e^x\cos(y)} &= 
+            \frac12\left(\frac{\partial}{\partial x} + i\frac{\partial}{\partial y}\right)e^x\cos(y)\\
+            &= \frac12e^x(\cos y - i\sin y)\\
+            &= \frac12 e^{\bar z}.
+        \end{align*}
+        So take $g(z)=\frac12e^z$.
+    \end{solution}
 
-    \question
-    Find a harmonic conjugate of $u(x,y) = e^x\sin y + 2xy + y$.
 
-    \question
+    \question[3]
+    Find a harmonic conjugate of $$u(x,y) = e^x\sin y + 2xy + y,$$
+    i.e., a harmonic function $v(x,y)$ such that $f=u+iv$ is analytic.
+    \begin{solution}
+        We differentiate:
+        \[
+            u_x = e^x\sin y + 2y
+        \]
+        We need $u_x=v_y$, so $v = \int u_x\,dy$:
+        \[
+            v = -e^x\cos y + y^2 + C(x)
+        \]
+        Differentiating, we get
+        \[
+            v_x = -e^x\cos y + C'(x).
+        \]
+        We need $v_x = -u_y$, i.e.,
+        \[
+            v_x = -u_y \Longleftrightarrow
+            -e^x\cos y + C'(x) = -(e^x\cos y + 2x + 1)
+            \Longleftrightarrow
+            C'(x)=-2x-1
+        \]
+        This identity holds with $C(x)=-x^2-x$.
+        Therefore,
+        \[
+            v= -e^x\cos y +  y^2 - x^2 - x
+        \]
+        is a harmonic conjugate of $u$.
+    \end{solution}
+
+    \question[3]
     For which $z$ is the function
     \[
         f(z) = \overline{e^{-{\bar z}^2}}
     \]
-    analytic?
+    analytic? Justify your answer.
 
-    \question
-    For which $z$ is the function
-    \[
-        f(z) = \frac{x\cos y + y\sin y + i(x\sin y - y\cos y)}{x^2+y^2}
-    \]
-    analytic?
+    \begin{solution}\hfill
+
+        \emph{Solution 1:} Observe that $f(z)=e^{-z^2}$. Therefore, $f(z)$ is analytic on $\CC$.
+
+        \bigskip
+        \emph{Solution 2:} You showed on a worksheet that $g(z)$ is analytic on $D$ if and only if $\overline{f(\bar z)}$ is analytic on $\bar D$.
+        Since $f(z)=\overline{g(\bar z)}$ with $g(z)=e^{-z^2}$ and $g(z)$ is analytic on $\CC$, it follows that $f(z)$ is analytic on $\bar\CC=\CC$.
+
+        \bigskip
+        \emph{Solution 3:}
+        (The ``hard'' way.) We have
+        \[
+            f(z) = u(x,y) + iv(x,y),
+        \]
+        where
+        \[
+            u(x,y) = e^{y^2-x^2}\cos(2xy)\quad\text{and}\quad
+            v(x,y) = -e^{y^2-x^2}\sin(2xy)
+        \]
+        We compute the partials of $u$ and $v$:
+        \begin{align*}
+            u_x &= -2xe^{y^2-x^2}\cos(2xy) - 2ye^{y^2-x^2}\sin(2xy),\\
+            v_y &= -2ye^{y^2-x^2}\sin(2xy) - 2xe^{-y^2-x^2}\cos(2xy) = u_x,\\
+            u_y &= 2ye^{y^2-x^2}\cos(2xy) - 2xe^{y^2-x^2}\sin(2xy)\\
+            v_x &= 2xe^{y^2-x^2}\sin(2xy) - 2ye^{y^2-x^2}\cos(2xy) = -u_y
+        \end{align*}
+        Since the partials of $u$ and $v$ are continuous and satisfy the Cauchy-Riemann equations on $\CC$,
+        $f(z)$ is analytic on $\CC$.
+    \end{solution}
+
 \end{questions}
 \end{document}
