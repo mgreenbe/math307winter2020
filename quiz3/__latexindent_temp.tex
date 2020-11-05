@@ -1,0 +1,82 @@
+\documentclass{amsart}
+
+\usepackage{amssymb, amsmath, fullpage}
+
+\newcommand{\CC}{\mathbb{C}}
+\begin{document}
+
+\begin{enumerate}
+    \setlength\itemsep{1em}
+    \item Let \(f(z)\) be a function satisfying the following properties:
+    
+    \bigskip
+    \begin{itemize}
+        \setlength\itemsep{0.5em}
+        \item \(f(z)\) is analytic on \(\mathbb{C}-\{0, 1\}\),
+        \item \(f(z)\) has a simple pole at \(z=0\),
+        \item \(f(z)\) has a removable singularity at \(z=1\).
+    \end{itemize} 
+    
+    \bigskip
+    Which of the following must hold?
+    [Present list of checkboxes.]
+
+    \bigskip
+    \begin{enumerate}
+        \setlength\itemsep{0.5em}
+        \item \(\displaystyle \lim_{z\to0}|f(z)|=\infty\)
+        \item \(\displaystyle \lim_{z\to1}|f(z)|\) exists and is finite.
+        \item The Taylor expansion of \(f(z)\) around \(z=\dfrac23\) has radius of
+        convergence \(\dfrac13\).
+        \item \(\displaystyle \lim_{z\to0}z^2f(z)=0\)
+        \item \(\int_{|z-\frac12|=1} f(z)\,dz \neq 0\)
+        \item $f(z)$ has a Laurent expansion convergent on $|z|>0$.
+    \end{enumerate}
+
+    [ans: a, b, d, f]
+
+    \item \texttt{\$a = list\_random(2, 3, 5, 6, 7); \$b = random(2, 9);}
+    
+    \bigskip\noindent
+    The power series
+    \[
+        f(z) = \sum_{n=0}^\infty \frac{z^{2n}}{(n+\texttt{\$b})\texttt{\$a}^n}
+    \]
+    has radius of convergence \(R=\,\)\fbox{$\phantom{A}\qquad\qquad$} [ans: $\sqrt{\texttt{\$a}}$].
+
+    \item \texttt{\$a = list\_random(2, 3, 5, 6, 7); \$b = random(2, 9);}
+    
+    \bigskip\noindent
+    Let
+    \[
+        f(z) = \frac{\sin(\texttt{\$b}z)}{(e^{\texttt{\$b} z}-1)(z^4 + z^2)}.
+    \]
+    \(f(z)\) has a pole of order \fbox{$\phantom{A}\qquad\qquad$} [ans: $2$] at $z=0$ and simple poles at \(z= \pm\,\) \fbox{$\phantom{A}\qquad\qquad$} [ans: $i$ or $-i$].
+
+    \item Let
+    \[
+        f(z)=\sum_{n=0}^\infty a_n\left(z-\frac2\pi\right)^n
+    \]
+    be the Taylor expansion of \(\sin \dfrac1z\) around \(z=\dfrac2\pi\).
+
+    \bigskip\noindent
+    Then \(a_0=\,\fbox{$\phantom{A}\qquad\qquad$}\) [ans: $1$] and \(a_1=\,\fbox{$\phantom{A}\qquad\qquad$}\) [ans: $0$].
+
+    \bigskip\noindent
+    Its radius of convergence is \(R=\,\)\fbox{$\phantom{A}\qquad\qquad$} [ans: $1/\pi$].
+
+    \item Let
+    \[
+        f(z)=\sum_{n=-\infty}^\infty a_n\left(z-\frac2\pi\right)^n
+    \]
+    be the Laurent expansion of
+    \[
+        f(z)=\frac{2z}{z^2+1}
+    \]
+    convergent in \(|z-i|>2\).
+    
+    \bigskip\noindent
+    Then \(a_{-1}=\,\fbox{$\phantom{A}\qquad\qquad$}\) [ans: $1$] and \(a_{2020}=\,\fbox{$\phantom{A}\qquad\qquad$}\) [ans: $0$].
+\end{enumerate}
+
+\end{document}

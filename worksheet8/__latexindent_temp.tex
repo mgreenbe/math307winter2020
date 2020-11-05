@@ -1,0 +1,195 @@
+\documentclass[12pt]{exam}
+\usepackage{fullpage, amsmath, amssymb, amsthm}
+\usepackage{tikz} 
+\usepackage[inline]{enumitem}
+
+
+\renewcommand{\partshook}{\setlength\itemsep{1em}}
+\newcommand{\D}{\displaystyle}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dz}{\mathrm{d}z}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\cic}{\frac1{2\pi i}\int_C}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator*{\Res}{Res}
+\DeclareMathOperator{\ord}{ord}
+
+\begin{document}
+
+\section*{MATH 307 --- Worksheet \#8 }
+
+\bigskip
+\begin{questions}
+\setlength\itemsep{1em}
+\setlength\parskip{1em}
+
+\question
+Evaluate the integral. All paths are positively oriented.
+\begin{parts}
+\part $\displaystyle \int_{|z|=1}\frac z{z^2+2z+5}\,dz$
+
+\begin{solution}
+We have $z^2 + 2z + 5 = (z-\alpha)(z-\bar\alpha)$, where $\alpha = -1 + 2i$.
+Neither $\alpha$ nor $\bar\alpha$ are lie inside the unit circle. Therefore,
+$$\int_{|z|=1}\frac z{z^2+2z+5}\,dz=0,$$
+by Cauchy's Theorem.
+\end{solution}
+
+\part $\displaystyle \int_{|z|=9}\frac 1{e^z-1}\,dz$
+    
+\begin{solution}
+The function $f(z)=1/(e^z-1)$ has a simple pole at $z=0$ with residue
+\[
+    \lim_{z\to 0} zf(z) = \lim_{z\to 0} \frac z{e^z-1} = 1,
+\]
+by l'Hopital's rule. It has no other singularities. Therefore, by the residue theorem,
+\[
+    \int_{|z|=9}\frac 1{e^z-1}\,dz = 2\pi i\cdot 1 = 2\pi i
+\]
+\end{solution}
+
+\part $\displaystyle \int_{|z|=8}\tan z\,dz$
+
+\begin{solution}
+    The function $\tan z$ has singularities at the zeros of $\cos z$:
+    \[
+        z_k = \frac\pi 2+k\pi,\quad k\in\ZZ.
+    \]
+    These zeros are all simple. (Why?)
+    Therefore, the $z_k$ are all simple poles of $\tan z$.
+    Since $\tan z$ is $\pi$-periodic, these poles all have the same residue:
+    \[
+        \lim_{z\to\pi/2}z\tan z = \lim_{z\to\pi/2}\frac{z\sin z}{\cos z}
+        = \lim_{z\to\pi/2}\frac{\sin z + z\cos z}{\sin z} = 1,
+    \]
+    by l'Hopital's rule.
+
+    There are six singularities of $\tan z$ in the circle $|z|=8$:
+    \[z_k=\pi/2 + k\pi,\quad k=-3, -2, -1, 0, 1, 2.\]
+    Therefore, by the Residue Theorem,
+    \[
+        \int_{|z|=8}\tan z\,dz = 6\cdot 2\pi i\cdot 1 = 12\pi i.
+    \]
+\end{solution}
+
+\part $\displaystyle \int_{|z|=3}\frac {5z-2}{z(z-1)}\,dz$
+    
+\begin{solution}
+The function $f(z)=(5z-2)/z(z-1)$ has a simple poles at $z=0$ and at $z=1$ with residues
+\[
+    \lim_{z\to 0} zf(z) = \frac{5(0) - 2}{0 - 1} = 2
+\]
+and
+\[
+    \lim_{z\to 0} zf(z) = \frac{5(1) - 2}{1} = 3,
+\]
+respectively. Both of these singularities lie inside the circle $|z|=3$.
+Therefore, by the residue theorem,
+\[
+    \int_{|z|=3}\frac {5z-2}{z(z-1)}\,dz = 2\pi i(2 + 3) = 10\pi i.
+\]
+\end{solution}
+
+\part $\displaystyle \int_\gamma\frac {e^{-z^2}}{z^2}\,dz$, 
+where $\gamma$ is the square with vertices $\pm 1\pm i$.
+    
+\begin{solution}
+Since $e^{-z^2}\neq 0$ for all $z\in\CC$, $z=0$ is the only pole of $f(z)=e^{-z}/^2$; it has order $2$.
+The Laurent expansion of $f(z)$ around $z=0$ contains only even powers of $z$. Therefore,
+\[
+    \Res_{z=0}f(z) = 0
+\]
+and
+\[
+    \int_\gamma\frac {e^{-z^2}}{z^2}\,dz=0
+\]
+by the Residue Theorem.
+\end{solution}
+
+\part $\displaystyle \int_{|z|=1/2}\frac1{(1-z)^3}\,dz$
+
+\begin{solution}
+    The function $f(z)=1/(1-z)^3$ is analytic on and inside $|z|=1/2$. Therefore,
+    \[
+        \int_{|z|=1/2}\frac1{(1-z)^3}\,dz = 0,
+    \]
+    by Cauchy's Theorem.
+\end{solution}
+
+\part $\displaystyle \int_{|z-1|=1/2}\frac1{(1-z)^3}\,dz$
+
+\begin{solution}
+    The function $f(z)=1/(1-z)^3$ has a single triple pole inside $|z-1|=1/2$, at $z=1$.
+    Since the Laurent expansion of $f(z)$ around $z=1$ is
+    \[
+        f(z) = \frac{-1}{(z-1)^3}, 
+    \]
+    the residue at $z=1$ is $0$. Therefore,
+    \[
+        \int_{|z-1|=1/2}\frac1{(1-z)^3}\,dz = 0
+    \]
+    by the Residue Theorem.
+\end{solution}
+
+\part $\displaystyle \int_{|z-1|=1/2}\frac{e^z}{(1-z)^3}\,dz$
+
+\begin{solution}
+    The function $f(z)={e^z}/(1-z)^3$ has a single triple pole inside $|z-1|=1/2$, at $z=1$.
+    The Laurent expansion of $f(z)$ around $z=1$ has the form
+    \begin{align*}
+        f(z) &= \frac{-1}{(z-1)^3}\left(e + e(z-1) + \frac e2(z-1)^2 + \cdots\right)\\
+        &= \frac{-e}{(z-1)^3} + \frac{-e}{(z-1)^2} + \frac{-e/2}{z-1} + \cdots.
+    \end{align*}
+    Therefore, by the Residue Theorem,
+    \[
+        \int_{|z-1|=1/2}\frac{e^z}{(1-z)^3}\,dz = 2\pi i(-e/2) = -e\pi i.
+    \]
+\end{solution}
+
+\part $\displaystyle \int_{|z|=3}\frac{\cos(z+2)}{z(z+2)^3}\,dz$
+
+\begin{solution}
+    The function $f(z)=\cos (z+2)/z(z+2)^3$ has a simple pole at $z=0$,
+    a triple pole at $z=-2$, and no other singularities.
+    \[
+        \Res_{z=0}f(z) = \lim_{z\to 0}zf(z) = \frac{\cos 2}{(0+2)^3} = \frac{\cos 2}8.
+    \]
+    To compute the residue at $z=-2$, let $g(z)=\cos (z+2)/z$.
+    Since $g(z)$ is analytic at $z=-2$, it's Laurent expansion around $z=-2$ is  a Taylor expansion:
+    \[
+        g(z) = a_0 + a_1(z+2) + a_2(z+2)^2 + \cdots.
+    \]
+    Therefore, the Laurent expansion of $f(z)$ around $z=-2$ has the form
+    \[
+        f(z) = \frac{a_0}{(z+2)^3} + \frac{a_1}{(z+2)^2} + \frac{a_2}{(z+2)^2} + \cdots.
+    \]
+    It follows that $\Res_{z=-2}f(z)=a_2$.
+    We can compute $a_2$ by using the usual formula for the Taylor coefficient.
+    \begin{align*}
+        g'(z) &= \frac{-z\sin (z+2) + \cos (z+2)}{z^2},\\
+        g''(z) &= \frac{(-(\sin (z+2) + z\cos (z+2)) - \sin (z+2))z^2 - 2z(-z\sin (z+2) + \cos (z+2))}{z^4}\\
+        g''(-2) &= \frac{(-(-2)(1))(-2)^2 - 2(-2)(1)}{(-2)^4}\\
+        &= \frac34\\
+        a_2 &= \frac{g''(-2)}{2!}\\&= \frac38
+    \end{align*}
+
+    Therefore,
+    \[
+        \int_{|z|=3}\frac{\cos(z+2)}{z(z+2)^3}\,dz = 2\pi i\left(\frac{\cos 2}8 + \frac38\right) = \frac{\pi i}4(\cos 2 + 3).
+    \]
+\end{solution}
+    
+\end{parts}
+
+\end{questions}
+\end{document}

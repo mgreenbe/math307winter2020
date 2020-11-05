@@ -1,0 +1,358 @@
+\documentclass[12pt]{exam}
+
+\usepackage{fullpage, amsmath, amssymb, amsthm, graphicx}
+
+\renewcommand{\partshook}{\setlength\itemsep{1em}}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator*{\Res}{Res}
+\DeclareMathOperator{\sign}{sign}
+\begin{document}
+
+\section*{MATH 307 --- Winter 2020 --- Final Exam}
+
+
+\bigskip
+\emph{Instructions:} 
+\bigskip
+\begin{questions}
+    \setlength\itemsep{2em}
+    \setlength\parskip{1em}
+\question $(1+i)^{17}$ equals:
+    \begin{choices}
+\choice $512(1+i)$
+\choice $512(1-i)$
+\choice $256(1+i)$
+\choice $256(1-i)$
+\choice None of these.
+    \end{choices}
+
+\question
+Let $\log z$ be the branch of the logarithm for which
+\[
+    \log re^{i\theta} = \log r + i\theta\quad\text{for}\quad
+    \theta\in[\pi, 3\pi).
+\]
+If
+\[
+    z=\frac{2i}{\sqrt3 + i},
+\]
+then $\log z$ equals:
+\begin{choices}
+    \choice $4\pi i/3$
+    \choice $5\pi i/3$
+    \choice $7\pi i/3$
+    \choice $8\pi i/3$
+    \choice None of these.
+\end{choices}
+
+\question
+$\dfrac{-2+i}{\sqrt 5}$ equals:
+
+\begin{choices}
+    \choice $e^{i\arctan(1/2)}$
+    \choice $e^{i(\pi - \arctan(1/2))}$
+    \choice $e^{i(\pi + \arctan(1/2))}$
+    \choice $e^{i(-\pi - \arctan(1/2))}$
+    \choice $e^{i(-\pi + \arctan(1/2))}$
+    \choice None of these.
+\end{choices}
+
+\question
+The function $e^z$ maps
+\begin{choices}
+    \choice circles to vertical lines.
+    \choice horizontal lines to circles.
+    \choice vertical lines to rays through the origin.
+    \choice rays through the origin to horizontal lines.
+    \choice None of these.
+\end{choices}
+
+
+\question
+$e^{2020\pi i/11}$ equals:
+\begin{choices}
+    \choice $e^{-4i\pi/11}$
+    \choice $e^{-9i\pi/11}$
+    \choice $e^{-14i\pi/11}$
+    \choice $e^{-19i\pi/11}$
+    \choice None of these.
+\end{choices}
+
+\question
+$\displaystyle\lim_{z\to e^{2i\pi/3}}\frac{z(z-e^{2i\pi/3})}{z^3-1}$ equals:
+\begin{choices}
+    \choice $-\dfrac12 - i\dfrac{\sqrt3}2$
+    \choice $\dfrac12 - i\dfrac{\sqrt3}2$
+    \choice $-\dfrac12 + i\dfrac{\sqrt3}2$
+    \choice $\dfrac12 + i\dfrac{\sqrt3}2$
+    \choice None of these.
+\end{choices}
+
+\question
+Which of the following functions $u(x,y)$ is harmonic?
+\begin{choices}
+    \choice $\operatorname{Im} e^z$
+    \choice $\operatorname{Re} e^{\bar z}$
+    \choice $\operatorname{Im} e^{\bar z}$
+    \choice $\operatorname{Re}(z^2)\operatorname{Im}(z^3) + \operatorname{Im}(z^2)\operatorname{Re}(z^3)$
+    \choice All of these.
+    \choice None of these.
+\end{choices}
+
+\question
+For $z\in\CC\setminus\{0\}$, let $\Gamma_z$ be the set of all smooth paths from $1$ to $z$ that don't pass through $0$.
+Which of the following is correct?
+\begin{choices}
+    \choice $\displaystyle \int_\gamma\frac{dw}w$ is independent of $\gamma\in\Gamma_z$, for all $z\in\CC\setminus\{0\}$.
+    \choice $\displaystyle \int_\gamma\frac{dw}{e^w-1}$ is independent $\gamma\in\Gamma_z$, for all $z\in\CC\setminus\{0\}$.
+    \choice $\displaystyle \int_\gamma\frac{dw}{e^{-w}}$ is independent of $\gamma\in\Gamma_z$, for all $z\in\CC\setminus\{0\}$.
+    \choice $\displaystyle \int_\gamma\frac{dw}{\sinh w}$ is independent of $\gamma\in\Gamma_z$, for all $z\in\CC\setminus\{0\}$.
+    \choice None of these.
+\end{choices}
+
+\question
+Let
+    $\displaystyle I = \int_{|z|=1}\frac{e^z}{z^2}\,dz$
+    and let
+    $\displaystyle J = \int_{|z|=1}\frac{\cos z}{z^2}\,dz.$
+
+Which of the following is correct?
+\begin{choices}
+    \choice $I=0$ and $J=0$.
+    \choice $I=0$ and $J\neq 0$.
+    \choice $I\neq 0$ and $J=0$
+    \choice $I\neq 0$ and $J\neq 0$.
+    \choice None of these.
+\end{choices}
+
+\question
+Let $\gamma$ be the positively oriented, circular path of radius $1/2$ around $-1$.
+Let
+    $$I = \int_{\gamma}\frac{dz}{z^3+1}\,dz,\qquad
+    J = \int_{\gamma}\frac{dz}{(z+1)^3}\,dz.$$
+
+Which of the following is correct?
+\begin{choices}
+    \choice $I=0$ and $J=0$.
+    \choice $I=0$ and $J\neq 0$.
+    \choice $I\neq 0$ and $J=0$
+    \choice $I\neq 0$ and $J\neq 0$.
+    \choice None of these.
+\end{choices}
+
+\question
+Which of the following is a harmonic conjugate of $u(x,y)=\sinh x\sin y$?
+\begin{choices}
+    \choice $v(x,y)=\cos x\cosh y$
+    \choice $v(x,y)=-\cos x\cosh y$
+    \choice $v(x,y)=\cosh x\cos y$
+    \choice $v(x,y)=-\cosh x\cos y$
+    \choice None of these.
+\end{choices}
+
+\question
+Let $f=u + iv$ be a continuous, complex-valued function on the connected open set $U$.
+Which of the following statements is equivalent to the analyticity of $f$ on $U$?
+\begin{choices}
+    \choice $\displaystyle \frac{\partial f}{\partial z}=0$
+    \choice For every $z_0\in U$, there are coefficients $a_0,a_1,\ldots$ such that
+    \[
+        \sum_{n=0}^\infty a_n(z-z_0)^n
+    \]
+    converges to $f(z)$ for all $z\in U$.
+    \choice $u_x=v_y$ and $v_x = u_y$
+    \choice $\displaystyle \int_\gamma f(z)\,dz=0$ for all rectangular paths $\gamma$ in $U$.
+    \choice None of these.
+\end{choices}
+
+\question
+$\displaystyle\int_{|z|=1} \frac{\sin z}{z^2}$ equals:
+\begin{choices}
+    \choice $0$
+    \choice $1$
+    \choice $-1$
+    \choice $2\pi i$
+    \choice $-2\pi i$
+    \choice None of these.
+\end{choices}
+
+
+
+\question
+Let $\gamma$ be the positively oriented, triangular path with vertices $1$, $e^{2\pi i/3}$, and $e^{4\pi i/3}$
+Then
+\[
+    \int_{\gamma}\frac{dz}{z^2+1}
+\]
+equals:
+\begin{choices}
+    \choice $0$
+    \choice $1$
+    \choice $-1$
+    \choice $2\pi i$
+    \choice $-2\pi i$
+    \choice None of these.
+\end{choices}
+
+
+\question
+The power series
+    $\displaystyle \sum_{n=1}^\infty \frac{z^n}n$
+\begin{choices}
+    \choice converges pointwise in the disk $|z|\leq 1$.
+    \choice converges uniformly in the disk $|z|<1$.
+    \choice converges pointwise in the annulus $|z|\geq 1$.
+    \choice converges uniformly in the annulus $|z|>1$.
+    \choice None of these are correct.
+\end{choices}
+
+
+\question
+The radii of convergence of the series
+\[
+    \sum_{n=0}^\infty \frac{z^n}{n!}\qquad\text{and}\qquad
+    \sum_{n=0}^\infty n!z^n
+\]
+are
+\begin{choices}
+    \choice $1$ and $1$, respectively.
+    \choice $1$ and $\infty$, respectively.
+    \choice $\infty$ and $1$, respectively.
+    \choice $\infty$ and $\infty$, respectively.
+    \choice None of these.
+\end{choices}
+
+
+\question
+The sequence of functions $f_n(z)=z^n$
+\begin{choices}
+    \choice converges uniformly on $|z|<1$.
+    \choice does not converge uniformly on any disk centered at $0$.
+    \choice converges pointwise on $|z|\leq 1$.
+    \choice diverges for infinitely many $z$ with $|z|=1$.
+    \choice None of these.
+\end{choices}
+
+
+\question
+Let $\operatorname{Log}z$ be the principal branch of the logarithm.
+Then the limit
+\[
+    \lim_{y\to 0^+}\left(\Log (iy-1) - \Log(-iy-1)\right)
+\]
+equals:
+\begin{choices}
+    \choice $-2\pi$
+    \choice $-2\pi i$
+    \choice $2\pi$
+    \choice $2\pi i$
+    \choice None of these.
+\end{choices}
+
+\question
+$\displaystyle\int_{-\infty}^\infty \frac{e^{-ix}}{1+x^2}\,dx$
+\begin{choices}
+    \choice $\displaystyle2\pi i\Res_{z=i}\frac{e^{-iz}}{1+z^2}$
+    \choice $\displaystyle2\pi i\Res_{z=-i}\frac{e^{-iz}}{1+z^2}$
+    \choice $\displaystyle2\pi i\left(\Res_{z=i}\frac{e^{-iz}}{1+z^2} + \Res_{z=-i}\frac{e^{-iz}}{1+z^2}\right)$
+    \choice $\displaystyle2\pi i\left(\Res_{z=i}\frac{e^{-iz}}{1+z^2} - \Res_{z=-i}\frac{e^{-iz}}{1+z^2}\right)$
+    \choice None of these.
+\end{choices}
+
+\question
+The function
+\[
+    f(z) = \frac{\sin(iz)}{z(z^2+\pi^2)^2}
+\]
+has
+\begin{choices}
+    \choice a removable singularity at $z=0$ and simple poles at $z=i\pi$ and $z=-i\pi$.
+    \choice simple poles at $z=0$, $z=i\pi$, and $z=-i\pi$.
+    \choice a simple poles at $z=0$ and double poles at $z=i\pi$ and $z=-i\pi$.
+    \choice a removable singularity at $z=0$ and double poles at $z=i\pi$ and $z=-i\pi$.
+    \choice None of the above.
+\end{choices}
+
+\question
+The function
+\[
+    f(z) = \frac{z^2}{\sin\dfrac1z}
+\]
+has
+\begin{choices}
+    \choice a removable singularity at $z=0$.
+    \choice a simple pole at $z=0$.
+    \choice a pole of order $\geq 2$ at $z=0$.
+    \choice an essential singularity at $z=0$.
+    \choice None of these.
+\end{choices}
+
+\question
+Let
+\[
+    f(z) = \frac1{z(z-1)(z^2-9)}.
+\]
+Denote by $L$ be the Laurent expansion of $f(z)$ around $z=1$ that converges at $z=5/2$.
+Then:
+\begin{choices}
+    \choice $L$ diverges at both $z=-1/2$ and $z=3/2$.
+    \choice $L$ diverges at $z=-1/2$ but converges at $z=3/2$.
+    \choice $L$ converges at $z=-1/2$ but diverges at $z=3/2$.
+    \choice $L$ converges at both $z=-1/2$ and $z=3/2$.
+    \choice None of these.
+\end{choices}
+
+\question
+$\displaystyle \int_{|z-1|=3}\cot z\,dz$ equals
+\begin{choices}
+    \choice $0$
+    \choice $2\pi i$
+    \choice $-2\pi i$
+    \choice $4\pi i$
+    \choice $-4\pi i$
+    \choice None of these.
+\end{choices}
+
+\question
+The residue of
+\[
+    f(z)=\frac{z^2-1}{\cos(\pi z) + 1}
+\]
+at $z=1$ is:
+\begin{choices}
+    \choice $0$
+    \choice $-1/\pi$
+    \choice $2/\pi^2$
+    \choice $-3/\pi$
+    \choice $4/\pi^2$
+    \choice None of these.
+\end{choices}
+
+\question
+Suppose $f(z)$ is analytic on $\CC$ except for
+\begin{itemize}
+    \item removable singularities at $z=0$ and $z=1$,
+    \item a double pole at $z=1+i$,
+    \item and an essential singularity at $z=3i$.
+\end{itemize}
+Then the radius of convergence of the Taylor expansion of $f(z)$ around $z=-1$ is:
+
+\begin{choices}
+    \choice $0$
+    \choice $1$
+    \choice $2$
+    \choice $\sqrt 5$
+    \choice $\sqrt 10$
+    \choice None of these.
+\end{choices}
+\end{questions}
+
+
+
+\end{document}

@@ -1,0 +1,219 @@
+\documentclass[12pt]{exam}
+\usepackage{fullpage, amsmath, amssymb, amsthm}
+\usepackage{tikz} 
+\usepackage[inline]{enumitem}
+
+
+\renewcommand{\partshook}{\setlength\itemsep{1em}}
+\newcommand{\D}{\displaystyle}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dz}{\mathrm{d}z}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cL}{\mathcal{L}}
+
+\newcommand{\cic}{\frac1{2\pi i}\int_C}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator*{\Res}{Res}
+\DeclareMathOperator{\ord}{ord}
+
+\begin{document}
+
+\section*{MATH 307 --- Worksheet \#9 }
+
+\subsection*{Evaluating definite integrals using the residue theorem}
+\bigskip
+\noindent
+\textbf{Theorem I.}
+Let $R(x,y)$ be a rational function of $x$ and $y$ whose denominator doesn't vanish
+on $|z|=1$. Then
+\[
+    \int_0^{2\pi} R(\cos\theta, \sin\theta)\,d\theta = 
+    2\pi i \sum\{\text{residues of $f(z)$ inside $|z|=1$}\},
+\]
+where
+\[
+    f(z) = \frac1{iz}R\left(\frac12\left(z+\frac1z\right), \frac1{2i}\left(z - \frac1z\right)\right)
+\]
+
+\bigskip
+\noindent
+\textbf{Theorem II.}
+\begin{enumerate}
+\item Let $f(z)$ be analytic on the closed upper half-plane
+\[\cH^*=\{z\in\CC : \Im z \geq 0\}\]
+except for finitely many singularities in the open upper half-plane
+\[\cH=\{z\in\CC : \Im z > 0\}.\]
+Suppose there are positive constants $M$, $p$, and $R_0$ with $p>1$ such that
+\[
+|f(z)|\leq \frac{M}{z^p}\quad\text{for all $z\in \cH$ with $|z|\geq R_0$.}
+\]
+Then
+\[
+\int_{-\infty}^{\infty}f(x)\,dx = 2\pi i \sum\{\text{residues of $f(z)$ in $\cH$}\}.
+\]
+\item Let $f(z)$ be analytic on the closed lower half-plane
+\[\cL^*=\{z\in\CC : \Im z \leq 0\}\]
+except for finitely many singularities in the open lower half-plane
+\[\cL=\{z\in\CC : \Im z < 0\}.\]
+Suppose there are positive constants $M$, $p$, and $R_0$ with $p>1$ such that
+\[
+|f(z)|\leq \frac{M}{z^p}\quad\text{for all $z\in \cL$ with $|z|\geq R_0$.}
+\]
+Then
+\[
+    \int_{-\infty}^{\infty}f(x)\,dx = 2\pi i \sum\{\text{residues of $f(z)$ in $\cL$}\}.
+\]
+\item Both 1.{} and 2.{} hold when $f=P/Q$ is a rational function such that
+\begin{enumerate}
+    \item $\deg Q\geq \deg P + 2$, and
+    \item $Q$ has no real roots.
+\end{enumerate}
+
+\end{enumerate}
+
+\subsection*{Problems}
+
+\begin{questions}
+\setlength\itemsep{1em}
+\setlength\parskip{1em}
+
+
+
+\question
+Evaluate the definite integral.
+
+\begin{parts}
+\part $\displaystyle I = \int_{-\infty}^\infty \frac{dx}{x^2-2x+4}$
+
+\begin{solution}
+    We have $$\deg (x^2-2x+4) = 2 \geq 2 + 0 = 2 + \deg 1.$$
+    Moreover $x^2-2x+4$ has roots $\alpha$ and $\bar\alpha$,
+    \[
+        \alpha = \frac{2 + \sqrt{(-2)^2 - 4(1)(4)}}2 = 1+ \sqrt3 i,
+    \]
+    neither of which lie on the real line. Therefore, by Theorem II(3),
+    \[
+    I = 2\pi i\Res_{z=\alpha}\frac1{(z-\alpha)(z-\bar\alpha)}
+    = \frac{2\pi i}{\alpha - \bar\alpha}
+    = \frac{2\pi i}{2\sqrt 3 i}
+    = \frac{\pi}{\sqrt3}.
+    \]
+\end{solution}
+
+\part $\displaystyle I = \int_0^{2\pi} \frac{d\theta}{(5 - 3\sin\theta)^2}$
+
+\begin{solution}
+    Let $z=e^{i\theta}$, so that
+    \[
+        \sin\theta = \frac{z^2-1}{2iz}
+        \quad\text{and}\quad d\theta = \frac{dz}{iz}.
+    \]
+    It follows that
+    \begin{align*}
+        I &= \int_{|z|=1}\frac{1}{\left(5 - 3\left(\frac{z^2-1}{2iz}\right)\right)^2}\frac{dz}{iz}\\
+         &=  \int_{|z|=1}\frac{(2iz)^2}{\left(5(2iz) - 3\left(z^2-1\right)\right)^2}\frac{dz}{iz}\\
+         &= \int_{|z|=1}\frac{4iz\,dz}{\left(3z^2 - 10iz - 3\right)^2}\\
+         &= \frac{4i}9\int_{|z|=1}\frac{z\,dz}{(z-3i)^2(z-i/3)^2}
+    \end{align*}
+    The integrand has no singularities on $|z|=1$
+    and its only singularity inside $|z|=1$ is a double pole at $z=i/3$.
+
+    We have:
+    \begin{align*}
+        \Res_{z=i/3}\frac{z}{(z-3i)^2(z-i/3)^2} 
+        &= \frac{d}{dz}\Big|_{z=i/3} (z-i/3)^2\frac{z}{(z-3i)^2(z-i/3)^2}\\
+        &= \left.\frac{d}{dz}\right|_{z=i/3} \frac{z}{(z-3i)^2}\\
+        &= \left.\frac{-z-3i}{(z-3i)^3}\right|_{z=i/3}\\
+        &= -\frac{45}{256}
+    \end{align*}
+    Therefore,
+    \[
+        I = 2\pi i \cdot \frac{4i}9 \cdot \frac{-45}{256} = \frac{5\pi}{32}.
+    \]
+\end{solution}
+
+\part $\displaystyle I = \int_0^{2\pi} \frac{d\theta}{a + b\sin\theta}\;$ where $a>|b|$
+\begin{solution}
+Let $z=e^{i\theta}$, so that
+\[
+    \sin\theta = \frac{z^2-1}{2iz}
+    \quad\text{and}\quad d\theta = \frac{dz}{iz}.
+\]
+It follows that
+\begin{align*}
+    I &= \int_{|z|=1}\frac1{a + b\left(\frac{z^2-1}{2iz}\right)}\frac{dz}{iz}\\
+    &= 2\int_{|z|=1}\frac{dz}{bz^2 + 2iaz - b}\\
+    &= \frac2b\int_{|z|=1}\frac{dz}{(z-i\alpha)(z-i\beta)},
+\end{align*}
+\[\alpha = \frac{-a+\sqrt{a^2-b^2}}b,\quad \beta = \frac{-a-\sqrt{a^2-b^2}}b\]
+Since $a>|b|$, $\beta < -1$ and $i\beta$ lies outside the closed unit disk.
+Noting that $\alpha = 1/\beta$, it follows that $\alpha$ lies inside the open unit disk.
+Therefore,
+\begin{align*}
+    I &= 2\pi i\cdot \frac2b\cdot \Res_{z=i\alpha}\frac1{(z-i\alpha)(z-i\beta)}\\
+    &= 2\pi i\cdot \frac2b\cdot \frac1{i(\alpha - \beta)}\\
+    &= 2\pi i\cdot \frac2b\cdot \frac{b}{2i\sqrt{a^2-b^2}}\\
+    &= \frac{2\pi}{\sqrt{a^2-b^2}}.
+\end{align*}
+\end{solution}
+
+\part $\displaystyle I = \int_{-\infty}^\infty \frac{1}{x^6+1}dx$
+
+\begin{solution}
+    Let $f(z)=1/(z^6+1)$. Then by Theorem II(3),
+    \[I = 2\pi i \sum\{\text{residues of $f(z)$ in $\cH$}\}.\]
+    The roots of the polynomial $z^6+1$ are
+    \[z_k=e^{(\pi i + 2k\pi)/6},\quad k=0,1,2,3,4,5.\]
+    The roots in the upper half-plane are
+    \[
+        z_0 = e^{\pi i/6},\quad z_1=e^{3\pi i/6},\quad\text{and}\quad
+        z_2 = e^{5\pi i/6}.
+    \]
+    Being simple zeros of $z^6+1$, the points $z_k$ are
+    simple poles of $f(z)$. Therefore,
+    \begin{align*}
+        \Res_{z=z_k}f(z) &= \lim_{z\to z_k}\frac{z-z_k}{z^6+1}\\
+        &= \lim_{z\to z_k}\frac{1}{6z^5}\\
+        &= \frac1{6z_k^5},
+    \end{align*}
+    by l'Hopital's rule.
+
+    Thus,
+    \begin{align*}
+        \Res_{z=z_0}f(z) &= \frac16{e^{-5\pi i}}\\
+        &= \frac16 \left(\frac{-\sqrt3 - i}2\right)\\
+        &= -\frac{\sqrt3}{12} - \frac{i}{12}\\
+        \Res_{z=z_1}f(z) &= \frac16e^{-15\pi i/6}\\
+        &=\frac16e^{-\pi i/2}\\
+        &= -\frac i6\\
+        \Res_{z=z_0}f(z) &= \frac16e^{-25\pi i}\\
+        &= \frac16e^{-\pi i/6}\\
+        &= \frac{\sqrt3}{12} - \frac i{12}\\
+    \end{align*}
+
+    Therefore,
+    \[
+        I = 2\pi i\left(-\frac{\sqrt3}6 - \frac{i}{12} - \frac i6  + \frac{\sqrt3}{12} - \frac i{12}\right) = \frac{2\pi}3.
+    \]
+\end{solution}
+
+
+
+\end{parts}
+\end{questions}
+\end{document}
+
+\part $\displaystyle I = \int \,dx$
+
+\begin{solution}
+\end{solution}
